@@ -15,8 +15,8 @@
 const DEMO_USER = {
     customerId: "demo123",
     password: "bank@123",
-    name: "Alex Johnson",
-    email: "alex@example.com"
+    name: "Tanmay Gurav",
+    email: "tanmaygurav2326@gmail.com"
 };
 
 
