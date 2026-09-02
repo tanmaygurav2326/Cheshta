@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MyBank - Beneficiaries</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="dashboard-body">
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-logo">
+
+            <div class="sidebar-logo-icon">
+                🏦
+            </div>
+
+            <div>
+                <h2>MyBank</h2>
+                <span>Online Banking</span>
+            </div>
+
+        </div>
+
+
+        <nav class="main-navigation">
+
+            <p class="nav-heading">
+                MAIN MENU
+            </p>
+
+            <a href="dashboard.html" class="nav-link">
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="accounts.html" class="nav-link">
+                <span class="nav-icon">💳</span>
+                <span>My Accounts</span>
+            </a>
+
+            <a href="cards.html" class="nav-link">
+                <span class="nav-icon">💳</span>
+                <span>My Cards</span>
+            </a>
+
+            <a href="beneficiaries.html" class="nav-link active">
+                <span class="nav-icon">👥</span>
+                <span>Beneficiaries</span>
+            </a>
+
+            <a href="transfer.html" class="nav-link">
+                <span class="nav-icon">↗</span>
+                <span>Transfer Money</span>
+            </a>
+
+            <a href="transactions.html" class="nav-link">
+                <span class="nav-icon">↕</span>
+                <span>Transactions</span>
+            </a>
+
+
+            <p class="nav-heading nav-heading-space">
+                PERSONAL
+            </p>
+
+            <a href="profile.html" class="nav-link">
+                <span class="nav-icon">👤</span>
+                <span>My Profile</span>
+            </a>
+
+            <a href="settings.html" class="nav-link">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+            <a href="help.html" class="nav-link">
+                <span class="nav-icon">?</span>
+                <span>Help & Support</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="security-badge">
+
+                <span class="security-badge-icon">
+                    🔒
+                </span>
+
+                <div>
+                    <strong>Secure Banking</strong>
+                    <small>Protected session</small>
+                </div>
+
+            </div>
+
+            <button
+                class="logout-button"
+                onclick="logout()">
+
+                <span>↪</span>
+                <span>Logout</span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =================================================
+             TOPBAR
+             ================================================= -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    class="mobile-menu-button"
+                    id="mobileMenuButton">
+
+                    ☰
+
+                </button>
+
+                <div class="page-title">
+
+                    <span>Payments</span>
+
+                    <h1>Beneficiaries</h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <button
+                    class="icon-button"
+                    id="notificationButton">
+
+                    🔔
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+                <div class="user-menu">
+
+                    <div class="user-avatar">
+                        AJ
+                    </div>
+
+                    <div class="user-details">
+
+                        <strong id="topUserName">
+                            Alex Johnson
+                        </strong>
+
+                        <span>
+                            Personal Account
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             CONTENT
+             ================================================= -->
+
+        <div class="dashboard-content">
+
+
+            <!-- =================================================
+                 HEADER
+                 ================================================= -->
+
+            <section class="welcome-section">
+
+                <div>
+
+                    <p class="welcome-small">
+                        Saved recipients
+                    </p>
+
+                    <h2>
+                        Beneficiaries
+                    </h2>
+
+                    <p>
+                        Manage the people and businesses you frequently
+                        send money to.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="btn btn-primary"
+                    id="addBeneficiaryButton">
+
+                    + Add Beneficiary
+
+                </button>
+
+            </section>
+
+
+            <!-- =================================================
+                 SECURITY NOTICE
+                 ================================================= -->
+
+            <div class="beneficiary-security-banner">
+
+                <span class="beneficiary-security-icon">
+                    🛡️
+                </span>
+
+                <div>
+
+                    <strong>
+                        Your beneficiary information is protected
+                    </strong>
+
+                    <p>
+                        Account numbers are masked. Never share
+                        your banking credentials or OTP.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SEARCH + FILTER
+                 ================================================= -->
+
+            <section class="beneficiary-toolbar">
+
+                <div class="beneficiary-search">
+
+                    <span>
+                        🔍
+                    </span>
+
+                    <input
+                        type="search"
+                        id="beneficiarySearch"
+                        placeholder="Search beneficiaries..."
+                        autocomplete="off">
+
+                </div>
+
+
+                <select
+                    id="beneficiaryFilter"
+                    class="beneficiary-filter">
+
+                    <option value="all">
+                        All Beneficiaries
+                    </option>
+
+                    <option value="individual">
+                        Individuals
+                    </option>
+
+                    <option value="business">
+                        Businesses
+                    </option>
+
+                </select>
+
+            </section>
+
+
+            <!-- =================================================
+                 BENEFICIARY LIST
+                 ================================================= -->
+
+            <section class="beneficiary-list-card">
+
+                <div class="beneficiary-list-header">
+
+                    <div>
+
+                        <p class="welcome-small">
+                            Saved payees
+                        </p>
+
+                        <h2>
+                            My Beneficiaries
+                        </h2>
+
+                    </div>
+
+                    <span id="beneficiaryCount">
+                        4 saved
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="beneficiary-list"
+                    id="beneficiaryList">
+
+
+                    <!-- =================================================
+                         BENEFICIARY 1
+                         ================================================= -->
+
+                    <article
+                        class="beneficiary-item"
+                        data-type="individual"
+                        data-name="Rahul Sharma">
+
+                        <div class="beneficiary-avatar blue">
+                            RS
+                        </div>
+
+
+                        <div class="beneficiary-main">
+
+                            <strong>
+                                Rahul Sharma
+                            </strong>
+
+                            <span>
+                                HDFC Bank
+                            </span>
+
+                            <small>
+                                A/C •••• 7842
+                            </small>
+
+                        </div>
+
+
+                        <div class="beneficiary-meta">
+
+                            <span class="beneficiary-type">
+                                Individual
+                            </span>
+
+                            <span>
+                                Added 12 Aug 2026
+                            </span>
+
+                        </div>
+
+
+                        <div class="beneficiary-actions">
+
+                            <button
+                                class="beneficiary-action transfer-beneficiary"
+                                title="Transfer">
+
+                                ↗
+
+                            </button>
+
+                            <button
+                                class="beneficiary-action edit-beneficiary"
+                                title="Edit">
+
+                                ✎
+
+                            </button>
+
+                            <button
+                                class="beneficiary-action delete-beneficiary"
+                                title="Delete">
+
+                                🗑
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================================
+                         BENEFICIARY 2
+                         ================================================= -->
+
+                    <article
+                        class="beneficiary-item"
+                        data-type="individual"
+                        data-name="Priya Patel">
+
+                        <div class="beneficiary-avatar purple">
+                            PP
+                        </div>
+
+
+                        <div class="beneficiary-main">
+
+                            <strong>
+                                Priya Patel
+                            </strong>
+
+                            <span>
+                                ICICI Bank
+                            </span>
+
+                            <small>
+                                A/C •••• 3218
+                            </small>
+
+                        </div>
+
+
+                        <div class="beneficiary-meta">
+
+                            <span class="beneficiary-type">
+                                Individual
+                            </span>
+
+                            <span>
+                                Added 04 Aug 2026
+                            </span>
+
+                        </div>
+
+
+                        <div class="beneficiary-actions">
+
+                            <button
+                                class="beneficiary-action transfer-beneficiary"
+                                title="Transfer">
+
+                                ↗
+
+                            </button>
+
+                            <button
+                                class="beneficiary-action edit-beneficiary"
+                                title="Edit">
+
+                                ✎
+
+                            </button>
+
+                            <button
+                                class="beneficiary-action delete-beneficiary"
+                                title="Delete">
+
+                                🗑
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================================
+                         BENEFICIARY 3
+                         ================================================= -->
+
+                    <article
+                        class="beneficiary-item"
+                        data-type="business"
+                        data-name="City Electricity">
+
+                        <div class="beneficiary-avatar orange">
+                            CE
+                        </div>
+
+
+                        <div class="beneficiary-main">
+
+                            <strong>
+                                City Electricity
+                            </strong>
+
+                            <span>
+                                Utility Payment
+                            </span>
+
+                            <small>
+                                Consumer •••• 5521
+                            </small>
+
+                        </div>
+
+
+                        <div class="beneficiary-meta">
+
+                            <span class="beneficiary-type">
+                                Business
+                            </span>
+
+                            <span>
+                                Added 28 Jul 2026
+                            </span>
+
+                        </div>
+
+
+                        <div class="beneficiary-actions">
+
+                            <button
+                                class="beneficiary-action transfer-beneficiary"
+                                title="Pay">
+
+                                ↗
+
+                            </button>
+
+                            <button
+                                class="beneficiary-action edit-beneficiary"
+                                title="Edit">
+
+                                ✎
+
+                            </button>
+
+                            <button
+                                class="beneficiary-action delete-beneficiary"
+                                title="Delete">
+
+                                🗑
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================================
+                         BENEFICIARY 4
+                         ================================================= -->
+
+                    <article
+                        class="beneficiary-item"
+                        data-type="business"
+                        data-name="Green Telecom">
+
+                        <div class="beneficiary-avatar green">
+                            GT
+                        </div>
+
+
+                        <div class="beneficiary-main">
+
+                            <strong>
+                                Green Telecom
+                            </strong>
+
+                            <span>
+                                Telecom Provider
+                            </span>
+
+                            <small>
+                                Customer •••• 9146
+                            </small>
+
+                        </div>
+
+
+                        <div class="beneficiary-meta">
+
+                            <span class="beneficiary-type">
+                                Business
+                            </span>
+
+                            <span>
+                                Added 21 Jul 2026
+                            </span>
+
+                        </div>
+
+
+                        <div class="beneficiary-actions">
+
+                            <button
+                                class="beneficiary-action transfer-beneficiary"
+                                title="Pay">
+
+                                ↗
+
+                            </button>
+
+                            <button
+                                class="beneficiary-action edit-beneficiary"
+                                title="Edit">
+
+                                ✎
+
+                            </button>
+
+                            <button
+                                class="beneficiary-action delete-beneficiary"
+                                title="Delete">
+
+                                🗑
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================================
+                         EMPTY RESULT
+                         ================================================= -->
+
+                    <div
+                        class="beneficiary-empty"
+                        id="beneficiaryEmpty">
+
+                        <span>
+                            🔎
+                        </span>
+
+                        <strong>
+                            No beneficiaries found
+                        </strong>
+
+                        <p>
+                            Try changing your search or filter.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 QUICK TRANSFER
+                 ================================================= -->
+
+            <section class="quick-transfer-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="welcome-small">
+                            Faster payments
+                        </p>
+
+                        <h2>
+                            Quick Transfer
+                        </h2>
+
+                    </div>
+
+                    <a
+                        href="transfer.html"
+                        class="view-all">
+
+                        Full Transfer →
+
+                    </a>
+
+                </div>
+
+
+                <div class="quick-transfer-grid">
+
+
+                    <button
+                        class="quick-transfer-card"
+                        data-name="Rahul Sharma">
+
+                        <div class="beneficiary-avatar blue">
+                            RS
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Rahul Sharma
+                            </strong>
+
+                            <span>
+                                •••• 7842
+                            </span>
+
+                        </div>
+
+                        <span>
+                            →
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="quick-transfer-card"
+                        data-name="Priya Patel">
+
+                        <div class="beneficiary-avatar purple">
+                            PP
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Priya Patel
+                            </strong>
+
+                            <span>
+                                •••• 3218
+                            </span>
+
+                        </div>
+
+                        <span>
+                            →
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="quick-transfer-card"
+                        data-name="City Electricity">
+
+                        <div class="beneficiary-avatar orange">
+                            CE
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                City Electricity
+                            </strong>
+
+                            <span>
+                                •••• 5521
+                            </span>
+
+                        </div>
+
+                        <span>
+                            →
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SAFETY
+                 ================================================= -->
+
+            <div class="data-protection-note">
+
+                <span>
+                    🔐
+                </span>
+
+                <p>
+                    Always verify the beneficiary name and masked
+                    account information before confirming a transfer.
+                    This demo never displays complete banking details.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             ADD / EDIT MODAL
+             ===================================================== -->
+
+        <div
+            class="modal-overlay"
+            id="beneficiaryModal">
+
+            <div class="confirmation-modal beneficiary-modal">
+
+                <button
+                    class="modal-close"
+                    id="closeBeneficiaryModal">
+
+                    ×
+
+                </button>
+
+
+                <div class="confirmation-icon">
+                    👤
+                </div>
+
+
+                <h2 id="beneficiaryModalTitle">
+                    Add Beneficiary
+                </h2>
+
+
+                <p>
+                    Enter the recipient information below.
+                </p>
+
+
+                <form id="beneficiaryForm">
+
+
+                    <label class="modal-input-label">
+                        Beneficiary name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="beneficiaryName"
+                        class="modal-text-input"
+                        placeholder="Enter full name"
+                        maxlength="60"
+                        required>
+
+
+                    <label class="modal-input-label">
+                        Bank
+                    </label>
+
+                    <input
+                        type="text"
+                        id="beneficiaryBank"
+                        class="modal-text-input"
+                        placeholder="Enter bank name"
+                        maxlength="60"
+                        required>
+
+
+                    <label class="modal-input-label">
+                        Account number
+                    </label>
+
+                    <input
+                        type="password"
+                        id="beneficiaryAccount"
+                        class="modal-text-input"
+                        placeholder="Enter account number"
+                        inputmode="numeric"
+                        maxlength="20"
+                        autocomplete="off"
+                        required>
+
+
+                    <label class="modal-input-label">
+                        Beneficiary type
+                    </label>
+
+                    <select
+                        id="beneficiaryType"
+                        class="modal-text-input">
+
+                        <option value="individual">
+                            Individual
+                        </option>
+
+                        <option value="business">
+                            Business
+                        </option>
+
+                    </select>
+
+
+                    <div class="modal-warning">
+
+                        🔒
+                        For this front-end demo, account information
+                        is not sent to a server or stored permanently.
+
+                    </div>
+
+
+                    <div class="modal-actions">
+
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            id="cancelBeneficiary">
+
+                            Cancel
+
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary">
+
+                            Save Beneficiary
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             DELETE MODAL
+             ===================================================== -->
+
+        <div
+            class="modal-overlay"
+            id="deleteModal">
+
+            <div class="confirmation-modal">
+
+                <button
+                    class="modal-close"
+                    id="closeDeleteModal">
+
+                    ×
+
+                </button>
+
+
+                <div class="confirmation-icon danger">
+                    🗑
+                </div>
+
+
+                <h2>
+                    Remove Beneficiary?
+                </h2>
+
+
+                <p id="deleteText">
+                    Are you sure you want to remove this beneficiary?
+                </p>
+
+
+                <div class="modal-warning">
+
+                    ⚠️
+                    Removing a beneficiary will prevent quick transfers
+                    to that recipient.
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        class="btn btn-secondary"
+                        id="cancelDelete">
+
+                        Cancel
+
+                    </button>
+
+
+                    <button
+                        class="btn btn-danger"
+                        id="confirmDelete">
+
+                        Remove
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             FOOTER
+             ===================================================== -->
+
+        <footer class="dashboard-footer">
+
+            <span>
+                © 2026 MyBank
+            </span>
+
+            <div>
+
+                <a href="#">
+                    Privacy
+                </a>
+
+                <a href="#">
+                    Security
+                </a>
+
+                <a href="help.html">
+                    Help
+                </a>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+
+    <!-- =====================================================
+         AUTHENTICATION
+         ===================================================== -->
+
+    <script src="auth.js"></script>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+
+        /* ==========================================
+           PAGE PROTECTION
+           ========================================== */
+
+        protectPage();
+
+
+        /* ==========================================
+           USER SESSION
+           ========================================== */
+
+        const session = getSession();
+
+
+        if (session) {
+
+            document.getElementById(
+                "topUserName"
+            ).textContent = session.name;
+
+        }
+
+
+        /* ==========================================
+           ELEMENTS
+           ========================================== */
+
+        const beneficiarySearch =
+            document.getElementById(
+                "beneficiarySearch"
+            );
+
+        const beneficiaryFilter =
+            document.getElementById(
+                "beneficiaryFilter"
+            );
+
+        const beneficiaryItems =
+            document.querySelectorAll(
+                ".beneficiary-item"
+            );
+
+        const beneficiaryEmpty =
+            document.getElementById(
+                "beneficiaryEmpty"
+            );
+
+        const beneficiaryCount =
+            document.getElementById(
+                "beneficiaryCount"
+            );
+
+
+        /* ==========================================
+           SEARCH + FILTER
+           ========================================== */
+
+        function filterBeneficiaries() {
+
+            const search =
+                beneficiarySearch.value
+                    .trim()
+                    .toLowerCase();
+
+            const filter =
+                beneficiaryFilter.value;
+
+            let visibleCount = 0;
+
+
+            beneficiaryItems.forEach(
+                function (item) {
+
+                    const name =
+                        item.dataset.name
+                            .toLowerCase();
+
+                    const text =
+                        item.textContent
+                            .toLowerCase();
+
+                    const type =
+                        item.dataset.type;
+
+
+                    const matchesSearch =
+                        name.includes(search) ||
+                        text.includes(search);
+
+
+                    const matchesFilter =
+                        filter === "all" ||
+                        filter === type;
+
+
+                    if (
+                        matchesSearch &&
+                        matchesFilter
+                    ) {
+
+                        item.style.display =
+                            "grid";
+
+                        visibleCount++;
+
+                    } else {
+
+                        item.style.display =
+                            "none";
+
+                    }
+
+                }
+            );
+
+
+            beneficiaryEmpty.style.display =
+                visibleCount === 0
+                    ? "block"
+                    : "none";
+
+
+            beneficiaryCount.textContent =
+                visibleCount +
+                " shown";
+
+        }
+
+
+        beneficiarySearch.addEventListener(
+            "input",
+            filterBeneficiaries
+        );
+
+
+        beneficiaryFilter.addEventListener(
+            "change",
+            filterBeneficiaries
+        );
+
+
+        /* ==========================================
+           MODAL ELEMENTS
+           ========================================== */
+
+        const beneficiaryModal =
+            document.getElementById(
+                "beneficiaryModal"
+            );
+
+        const beneficiaryForm =
+            document.getElementById(
+                "beneficiaryForm"
+            );
+
+        const beneficiaryModalTitle =
+            document.getElementById(
+                "beneficiaryModalTitle"
+            );
+
+        const beneficiaryName =
+            document.getElementById(
+                "beneficiaryName"
+            );
+
+        const beneficiaryBank =
+            document.getElementById(
+                "beneficiaryBank"
+            );
+
+        const beneficiaryAccount =
+            document.getElementById(
+                "beneficiaryAccount"
+            );
+
+        const beneficiaryType =
+            document.getElementById(
+                "beneficiaryType"
+            );
+
+
+        let editingItem = null;
+
+
+        /* ==========================================
+           OPEN ADD MODAL
+           ========================================== */
+
+        document
+            .getElementById("addBeneficiaryButton")
+            .addEventListener(
+                "click",
+                function () {
+
+                    editingItem = null;
+
+                    beneficiaryModalTitle.textContent =
+                        "Add Beneficiary";
+
+                    beneficiaryForm.reset();
+
+                    beneficiaryModal.classList.add(
+                        "show"
+                    );
+
+                    document.body.classList.add(
+                        "modal-open"
+                    );
+
+                    setTimeout(
+                        function () {
+
+                            beneficiaryName.focus();
+
+                        },
+                        100
+                    );
+
+                }
+            );
+
+
+        /* ==========================================
+           EDIT BENEFICIARY
+           ========================================== */
+
+        document
+            .querySelectorAll(".edit-beneficiary")
+            .forEach(
+                function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        function () {
+
+                            editingItem =
+                                button.closest(
+                                    ".beneficiary-item"
+                                );
+
+
+                            const name =
+                                editingItem.dataset.name;
+
+
+                            const bank =
+                                editingItem
+                                    .querySelector(
+                                        ".beneficiary-main span"
+                                    )
+                                    .textContent;
+
+
+                            beneficiaryModalTitle.textContent =
+                                "Edit Beneficiary";
+
+
+                            beneficiaryName.value =
+                                name;
+
+                            beneficiaryBank.value =
+                                bank;
+
+                            beneficiaryAccount.value =
+                                "";
+
+                            beneficiaryType.value =
+                                editingItem.dataset.type;
+
+
+                            beneficiaryModal.classList.add(
+                                "show"
+                            );
+
+                            document.body.classList.add(
+                                "modal-open"
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+
+        /* ==========================================
+           SAVE BENEFICIARY
+           ========================================== */
+
+        beneficiaryForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    beneficiaryName.value
+                        .trim();
+
+                const bank =
+                    beneficiaryBank.value
+                        .trim();
+
+                const account =
+                    beneficiaryAccount.value
+                        .replace(
+                            /\D/g,
+                            ""
+                        );
+
+
+                if (
+                    name.length < 2 ||
+                    bank.length < 2 ||
+                    account.length < 6
+                ) {
+
+                    alert(
+                        "Please enter valid beneficiary details."
+                    );
+
+                    return;
+
+                }
+
+
+                /*
+                 * Never store the complete account number
+                 * in this demo.
+                 */
+
+                const lastFour =
+                    account.slice(-4);
+
+
+                if (editingItem) {
+
+                    editingItem.dataset.name =
+                        name;
+
+                    editingItem.dataset.type =
+                        beneficiaryType.value;
+
+
+                    editingItem.querySelector(
+                        ".beneficiary-main strong"
+                    ).textContent =
+                        name;
+
+
+                    editingItem.querySelector(
+                        ".beneficiary-main span"
+                    ).textContent =
+                        bank;
+
+
+                    editingItem.querySelector(
+                        ".beneficiary-main small"
+                    ).textContent =
+                        "A/C •••• " +
+                        lastFour;
+
+
+                    editingItem.querySelector(
+                        ".beneficiary-type"
+                    ).textContent =
+                        beneficiaryType.value ===
+                        "business"
+                            ? "Business"
+                            : "Individual";
+
+
+                    alert(
+                        "Beneficiary updated successfully."
+                    );
+
+                } else {
+
+                    addBeneficiaryToPage(
+                        name,
+                        bank,
+                        lastFour,
+                        beneficiaryType.value
+                    );
+
+
+                    alert(
+                        "Beneficiary added successfully."
+                    );
+
+                }
+
+
+                closeBeneficiaryModal();
+
+                filterBeneficiaries();
+
+            }
+        );
+
+
+        /* ==========================================
+           ADD ITEM TO PAGE
+           ========================================== */
+
+        function addBeneficiaryToPage(
+            name,
+            bank,
+            lastFour,
+            type
+        ) {
+
+            const initials =
+                name
+                    .split(" ")
+                    .map(
+                        function (word) {
+                            return word.charAt(0);
+                        }
+                    )
+                    .join("")
+                    .substring(0, 2)
+                    .toUpperCase();
+
+
+            const item =
+                document.createElement(
+                    "article"
+                );
+
+
+            item.className =
+                "beneficiary-item";
+
+
+            item.dataset.type =
+                type;
+
+
+            item.dataset.name =
+                name;
+
+
+            item.innerHTML = `
+
+                <div class="beneficiary-avatar blue">
+                    ${escapeHTML(initials)}
+                </div>
+
+                <div class="beneficiary-main">
+
+                    <strong>
+                        ${escapeHTML(name)}
+                    </strong>
+
+                    <span>
+                        ${escapeHTML(bank)}
+                    </span>
+
+                    <small>
+                        A/C •••• ${escapeHTML(lastFour)}
+                    </small>
+
+                </div>
+
+                <div class="beneficiary-meta">
+
+                    <span class="beneficiary-type">
+                        ${type === "business"
+                            ? "Business"
+                            : "Individual"}
+                    </span>
+
+                    <span>
+                        Added today
+                    </span>
+
+                </div>
+
+                <div class="beneficiary-actions">
+
+                    <button
+                        class="beneficiary-action transfer-beneficiary"
+                        title="Transfer">
+
+                        ↗
+
+                    </button>
+
+                    <button
+                        class="beneficiary-action edit-beneficiary"
+                        title="Edit">
+
+                        ✎
+
+                    </button>
+
+                    <button
+                        class="beneficiary-action delete-beneficiary"
+                        title="Delete">
+
+                        🗑
+
+                    </button>
+
+                </div>
+            `;
+
+
+            document
+                .getElementById(
+                    "beneficiaryList"
+                )
+                .insertBefore(
+                    item,
+                    beneficiaryEmpty
+                );
+
+
+            attachItemActions(item);
+
+        }
+
+
+        /* ==========================================
+           HTML ESCAPING
+           ========================================== */
+
+        function escapeHTML(value) {
+
+            return value
+                .replace(
+                    /&/g,
+                    "&amp;"
+                )
+                .replace(
+                    /</g,
+                    "&lt;"
+                )
+                .replace(
+                    />/g,
+                    "&gt;"
+                )
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
+
+        }
+
+
+        /* ==========================================
+           DELETE MODAL
+           ========================================== */
+
+        const deleteModal =
+            document.getElementById(
+                "deleteModal"
+            );
+
+        const deleteText =
+            document.getElementById(
+                "deleteText"
+            );
+
+
+        let itemToDelete = null;
+
+
+        function openDeleteModal(item) {
+
+            itemToDelete = item;
+
+
+            const name =
+                item.dataset.name;
+
+
+            deleteText.textContent =
+                "Are you sure you want to remove " +
+                name +
+                "?";
+
+
+            deleteModal.classList.add(
+                "show"
+            );
+
+            document.body.classList.add(
+                "modal-open"
+            );
+
+        }
+
+
+        function closeDeleteModal() {
+
+            deleteModal.classList.remove(
+                "show"
+            );
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+
+            itemToDelete = null;
+
+        }
+
+
+        document
+            .getElementById("confirmDelete")
+            .addEventListener(
+                "click",
+                function () {
+
+                    if (itemToDelete) {
+
+                        itemToDelete.remove();
+
+                        alert(
+                            "Beneficiary removed."
+                        );
+
+                    }
+
+                    closeDeleteModal();
+
+                    filterBeneficiaries();
+
+                }
+            );
+
+
+        document
+            .getElementById("cancelDelete")
+            .addEventListener(
+                "click",
+                closeDeleteModal
+            );
+
+
+        document
+            .getElementById("closeDeleteModal")
+            .addEventListener(
+                "click",
+                closeDeleteModal
+            );
+
+
+        /* ==========================================
+           ITEM ACTIONS
+           ========================================== */
+
+        function attachItemActions(item) {
+
+
+            const transferButton =
+                item.querySelector(
+                    ".transfer-beneficiary"
+                );
+
+
+            const editButton =
+                item.querySelector(
+                    ".edit-beneficiary"
+                );
+
+
+            const deleteButton =
+                item.querySelector(
+                    ".delete-beneficiary"
+                );
+
+
+            transferButton.addEventListener(
+                "click",
+                function () {
+
+                    const name =
+                        item.dataset.name;
+
+
+                    /*
+                     * Pass the beneficiary name
+                     * to the transfer page.
+                     */
+
+                    window.location.href =
+                        "transfer.html?beneficiary=" +
+                        encodeURIComponent(
+                            name
+                        );
+
+                }
+            );
+
+
+            editButton.addEventListener(
+                "click",
+                function () {
+
+                    editingItem =
+                        item;
+
+
+                    beneficiaryModalTitle.textContent =
+                        "Edit Beneficiary";
+
+
+                    beneficiaryName.value =
+                        item.dataset.name;
+
+
+                    beneficiaryBank.value =
+                        item.querySelector(
+                            ".beneficiary-main span"
+                        ).textContent;
+
+
+                    beneficiaryAccount.value =
+                        "";
+
+
+                    beneficiaryType.value =
+                        item.dataset.type;
+
+
+                    beneficiaryModal.classList.add(
+                        "show"
+                    );
+
+                    document.body.classList.add(
+                        "modal-open"
+                    );
+
+                }
+            );
+
+
+            deleteButton.addEventListener(
+                "click",
+                function () {
+
+                    openDeleteModal(
+                        item
+                    );
+
+                }
+            );
+
+        }
+
+
+        beneficiaryItems.forEach(
+            attachItemActions
+        );
+
+
+        /* ==========================================
+           CLOSE ADD / EDIT MODAL
+           ========================================== */
+
+        function closeBeneficiaryModal() {
+
+            beneficiaryModal.classList.remove(
+                "show"
+            );
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+
+            beneficiaryForm.reset();
+
+            editingItem = null;
+
+        }
+
+
+        document
+            .getElementById(
+                "closeBeneficiaryModal"
+            )
+            .addEventListener(
+                "click",
+                closeBeneficiaryModal
+            );
+
+
+        document
+            .getElementById(
+                "cancelBeneficiary"
+            )
+            .addEventListener(
+                "click",
+                closeBeneficiaryModal
+            );
+
+
+        /* ==========================================
+           QUICK TRANSFER
+           ========================================== */
+
+        document
+            .querySelectorAll(
+                ".quick-transfer-card"
+            )
+            .forEach(
+                function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        function () {
+
+                            const name =
+                                button.dataset.name;
+
+
+                            window.location.href =
+                                "transfer.html?beneficiary=" +
+                                encodeURIComponent(
+                                    name
+                                );
+
+                        }
+                    );
+
+                }
+            );
+
+
+        /* ==========================================
+           NOTIFICATIONS
+           ========================================== */
+
+        document
+            .getElementById(
+                "notificationButton"
+            )
+            .addEventListener(
+                "click",
+                function () {
+
+                    alert(
+                        "You have 2 new notifications."
+                    );
+
+                }
+            );
+
+
+        /* ==========================================
+           MOBILE SIDEBAR
+           ========================================== */
+
+        const mobileMenuButton =
+            document.getElementById(
+                "mobileMenuButton"
+            );
+
+        const sidebar =
+            document.getElementById(
+                "sidebar"
+            );
+
+        const sidebarOverlay =
+            document.getElementById(
+                "sidebarOverlay"
+            );
+
+
+        mobileMenuButton.addEventListener(
+            "click",
+            function () {
+
+                sidebar.classList.add(
+                    "open"
+                );
+
+                sidebarOverlay.classList.add(
+                    "show"
+                );
+
+            }
+        );
+
+
+        sidebarOverlay.addEventListener(
+            "click",
+            function () {
+
+                sidebar.classList.remove(
+                    "open"
+                );
+
+                sidebarOverlay.classList.remove(
+                    "show"
+                );
+
+            }
+        );
+
+
+        /* ==========================================
+           ESCAPE KEY
+           ========================================== */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (event.key === "Escape") {
+
+                    closeBeneficiaryModal();
+
+                    closeDeleteModal();
+
+                }
+
+            }
+        );
+
+
+        /* ==========================================
+           ACCOUNT INPUT VALIDATION
+           ========================================== */
+
+        beneficiaryAccount.addEventListener(
+            "input",
+            function () {
+
+                this.value =
+                    this.value.replace(
+                        /\D/g,
+                        ""
+                    );
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

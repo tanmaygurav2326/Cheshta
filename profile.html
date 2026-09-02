@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MyBank - Profile & Security</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- =====================================================
+         SIDEBAR OVERLAY
+         ===================================================== -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay">
+    </div>
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar">
+
+        <!-- Logo -->
+
+        <div class="sidebar-logo">
+
+            <div class="sidebar-logo-icon">
+                🏦
+            </div>
+
+            <div>
+                <h2>MyBank</h2>
+                <span>Online Banking</span>
+            </div>
+
+        </div>
+
+
+        <!-- Navigation -->
+
+        <nav class="main-navigation">
+
+            <p class="nav-heading">
+                MAIN MENU
+            </p>
+
+
+            <a
+                href="dashboard.html"
+                class="nav-link">
+
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a
+                href="accounts.html"
+                class="nav-link">
+
+                <span class="nav-icon">💳</span>
+                <span>My Accounts</span>
+
+            </a>
+
+
+            <a
+                href="transfer.html"
+                class="nav-link">
+
+                <span class="nav-icon">↗</span>
+                <span>Transfer Money</span>
+
+            </a>
+
+
+            <a
+                href="transactions.html"
+                class="nav-link">
+
+                <span class="nav-icon">↕</span>
+                <span>Transactions</span>
+
+            </a>
+
+
+            <p class="nav-heading nav-heading-space">
+                PERSONAL
+            </p>
+
+
+            <a
+                href="profile.html"
+                class="nav-link active">
+
+                <span class="nav-icon">👤</span>
+                <span>My Profile</span>
+
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-link"
+                id="settingsLink">
+
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+
+            </a>
+
+        </nav>
+
+
+        <!-- Sidebar bottom -->
+
+        <div class="sidebar-bottom">
+
+            <div class="security-badge">
+
+                <span class="security-badge-icon">
+                    🔒
+                </span>
+
+                <div>
+
+                    <strong>
+                        Secure Banking
+                    </strong>
+
+                    <small>
+                        Protected session
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="logout-button"
+                onclick="logout()">
+
+                <span>↪</span>
+                <span>Logout</span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =================================================
+             TOP BAR
+             ================================================= -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                    aria-label="Open navigation">
+
+                    ☰
+
+                </button>
+
+
+                <div class="page-title">
+
+                    <span>Personal</span>
+
+                    <h1>My Profile</h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <button
+                    class="icon-button"
+                    id="notificationButton"
+                    aria-label="Notifications">
+
+                    🔔
+
+                    <span class="notification-dot">
+                    </span>
+
+                </button>
+
+
+                <div class="user-menu">
+
+                    <div class="user-avatar">
+                        AJ
+                    </div>
+
+                    <div class="user-details">
+
+                        <strong id="topUserName">
+                            Alex Johnson
+                        </strong>
+
+                        <span>
+                            Personal Account
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             CONTENT
+             ================================================= -->
+
+        <div class="dashboard-content">
+
+
+            <!-- =================================================
+                 INTRO
+                 ================================================= -->
+
+            <section class="welcome-section">
+
+                <div>
+
+                    <p class="welcome-small">
+                        Account settings
+                    </p>
+
+                    <h2>
+                        Profile & Security
+                    </h2>
+
+                    <p>
+                        Manage your personal information and account security.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PROFILE HEADER
+                 ================================================= -->
+
+            <section class="profile-header-card">
+
+                <div class="large-profile-avatar">
+                    AJ
+                </div>
+
+
+                <div class="profile-header-info">
+
+                    <h2 id="profileName">
+                        Alex Johnson
+                    </h2>
+
+                    <p>
+                        Personal Banking Customer
+                    </p>
+
+                    <span class="profile-status">
+                        ● Account Active
+                    </span>
+
+                </div>
+
+
+                <div class="member-since">
+
+                    <span>
+                        Member since
+                    </span>
+
+                    <strong>
+                        January 2024
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PROFILE GRID
+                 ================================================= -->
+
+            <div class="profile-grid">
+
+
+                <!-- =================================================
+                     PERSONAL INFORMATION
+                     ================================================= -->
+
+                <section class="profile-card">
+
+                    <div class="profile-card-header">
+
+                        <div>
+
+                            <h2>
+                                Personal Information
+                            </h2>
+
+                            <p>
+                                Your basic account information.
+                            </p>
+
+                        </div>
+
+                        <span class="card-header-icon">
+                            👤
+                        </span>
+
+                    </div>
+
+
+                    <div class="profile-fields">
+
+
+                        <div class="profile-field">
+
+                            <label>
+                                Full Name
+                            </label>
+
+                            <div class="protected-field">
+
+                                <span id="fullName">
+                                    Alex Johnson
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="profile-field">
+
+                            <label>
+                                Email Address
+                            </label>
+
+                            <div class="protected-field">
+
+                                <span id="emailValue">
+                                    a•••••••@example.com
+                                </span>
+
+                                <button
+                                    class="field-toggle"
+                                    data-target="email">
+
+                                    👁
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="profile-field">
+
+                            <label>
+                                Mobile Number
+                            </label>
+
+                            <div class="protected-field">
+
+                                <span id="phoneValue">
+                                    +91 •••••• 4589
+                                </span>
+
+                                <button
+                                    class="field-toggle"
+                                    data-target="phone">
+
+                                    👁
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="profile-field">
+
+                            <label>
+                                Customer ID
+                            </label>
+
+                            <div class="protected-field">
+
+                                <span>
+                                    MBK-••••-7821
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="profile-field">
+
+                            <label>
+                                Date of Birth
+                            </label>
+
+                            <div class="protected-field">
+
+                                <span>
+                                    •• / •• / 1998
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="profile-field">
+
+                            <label>
+                                Address
+                            </label>
+
+                            <div class="protected-field">
+
+                                <span>
+                                    Pune, Maharashtra
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-card-footer">
+
+                        <button
+                            class="btn btn-secondary"
+                            id="editProfileButton">
+
+                            Edit Profile
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     SECURITY OVERVIEW
+                     ================================================= -->
+
+                <section class="profile-card">
+
+                    <div class="profile-card-header">
+
+                        <div>
+
+                            <h2>
+                                Security
+                            </h2>
+
+                            <p>
+                                Protect your banking account.
+                            </p>
+
+                        </div>
+
+                        <span class="card-header-icon">
+                            🛡️
+                        </span>
+
+                    </div>
+
+
+                    <div class="security-score">
+
+                        <div class="security-score-circle">
+                            <strong>
+                                85%
+                            </strong>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Good security
+                            </strong>
+
+                            <p>
+                                Complete the recommended actions
+                                to improve your account security.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="security-check-list">
+
+
+                        <div class="security-check completed">
+
+                            <span>
+                                ✓
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Strong password
+                                </strong>
+
+                                <small>
+                                    Your password meets security requirements.
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="security-check completed">
+
+                            <span>
+                                ✓
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Email verified
+                                </strong>
+
+                                <small>
+                                    Your email address is verified.
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="security-check completed">
+
+                            <span>
+                                ✓
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Mobile verified
+                                </strong>
+
+                                <small>
+                                    Your mobile number is verified.
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="security-check warning">
+
+                            <span>
+                                !
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Two-factor authentication
+                                </strong>
+
+                                <small>
+                                    Add another layer of protection.
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="btn btn-primary full-width"
+                        id="twoFactorButton">
+
+                        Enable 2FA
+
+                    </button>
+
+                </section>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 PASSWORD SECTION
+                 ================================================= -->
+
+            <section class="profile-card password-card">
+
+                <div class="profile-card-header">
+
+                    <div>
+
+                        <h2>
+                            Change Password
+                        </h2>
+
+                        <p>
+                            Update your password regularly to keep your account secure.
+                        </p>
+
+                    </div>
+
+                    <span class="card-header-icon">
+                        🔑
+                    </span>
+
+                </div>
+
+
+                <form id="passwordForm">
+
+                    <div class="password-form-grid">
+
+
+                        <!-- Current password -->
+
+                        <div class="form-group">
+
+                            <label for="currentPassword">
+                                Current Password
+                            </label>
+
+                            <div class="password-input-wrapper">
+
+                                <input
+                                    type="password"
+                                    id="currentPassword"
+                                    placeholder="Enter current password"
+                                    autocomplete="current-password"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-input="currentPassword">
+
+                                    👁
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- New password -->
+
+                        <div class="form-group">
+
+                            <label for="newPassword">
+                                New Password
+                            </label>
+
+                            <div class="password-input-wrapper">
+
+                                <input
+                                    type="password"
+                                    id="newPassword"
+                                    placeholder="Enter new password"
+                                    autocomplete="new-password"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-input="newPassword">
+
+                                    👁
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Confirm -->
+
+                        <div class="form-group">
+
+                            <label for="confirmPassword">
+                                Confirm New Password
+                            </label>
+
+                            <div class="password-input-wrapper">
+
+                                <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    placeholder="Confirm new password"
+                                    autocomplete="new-password"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-input="confirmPassword">
+
+                                    👁
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Password requirements -->
+
+                    <div class="password-requirements">
+
+                        <strong>
+                            Password requirements
+                        </strong>
+
+
+                        <div class="password-rules">
+
+                            <span id="ruleLength">
+                                ○ At least 8 characters
+                            </span>
+
+                            <span id="ruleUpper">
+                                ○ One uppercase letter
+                            </span>
+
+                            <span id="ruleNumber">
+                                ○ One number
+                            </span>
+
+                            <span id="ruleSpecial">
+                                ○ One special character
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="password-message"
+                        id="passwordMessage">
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary">
+
+                        Update Password
+
+                    </button>
+
+                </form>
+
+            </section>
+
+
+            <!-- =================================================
+                 LOGIN ACTIVITY
+                 ================================================= -->
+
+            <section class="profile-card">
+
+                <div class="profile-card-header">
+
+                    <div>
+
+                        <h2>
+                            Recent Login Activity
+                        </h2>
+
+                        <p>
+                            Review recent access to your account.
+                        </p>
+
+                    </div>
+
+                    <span class="card-header-icon">
+                        🖥️
+                    </span>
+
+                </div>
+
+
+                <div class="login-activity-list">
+
+
+                    <div class="login-activity-item">
+
+                        <div class="activity-device-icon">
+                            💻
+                        </div>
+
+                        <div class="activity-info">
+
+                            <strong>
+                                Windows Computer
+                            </strong>
+
+                            <span>
+                                Chrome • Pune, India
+                            </span>
+
+                        </div>
+
+                        <div class="activity-time">
+
+                            <strong>
+                                Just now
+                            </strong>
+
+                            <span class="current-session">
+                                Current session
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="login-activity-item">
+
+                        <div class="activity-device-icon">
+                            📱
+                        </div>
+
+                        <div class="activity-info">
+
+                            <strong>
+                                Android Device
+                            </strong>
+
+                            <span>
+                                Mobile App • Pune, India
+                            </span>
+
+                        </div>
+
+                        <div class="activity-time">
+
+                            <strong>
+                                Yesterday
+                            </strong>
+
+                            <span>
+                                Successful
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="login-activity-item">
+
+                        <div class="activity-device-icon">
+                            💻
+                        </div>
+
+                        <div class="activity-info">
+
+                            <strong>
+                                Windows Computer
+                            </strong>
+
+                            <span>
+                                Edge • Mumbai, India
+                            </span>
+
+                        </div>
+
+                        <div class="activity-time">
+
+                            <strong>
+                                28 Aug 2026
+                            </strong>
+
+                            <span>
+                                Successful
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-card-footer">
+
+                    <button
+                        class="btn btn-danger-outline"
+                        id="signOutOtherButton">
+
+                        Sign Out Other Sessions
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SECURITY NOTICE
+                 ================================================= -->
+
+            <div class="data-protection-note">
+
+                <span>
+                    🛡️
+                </span>
+
+                <p>
+                    MyBank will never ask you to share your password,
+                    PIN, OTP, or full account details through email,
+                    phone, or chat.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             EDIT PROFILE MODAL
+             ================================================= -->
+
+        <div
+            class="modal-overlay"
+            id="profileModal">
+
+            <div class="confirmation-modal profile-edit-modal">
+
+                <button
+                    class="modal-close"
+                    id="closeProfileModal">
+
+                    ×
+
+                </button>
+
+
+                <div class="confirmation-icon">
+                    👤
+                </div>
+
+
+                <h2>
+                    Edit Profile
+                </h2>
+
+                <p>
+                    Update your basic profile information.
+                </p>
+
+
+                <form id="profileEditForm">
+
+                    <div class="form-group">
+
+                        <label for="editName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editName"
+                            value="Alex Johnson"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="editCity">
+                            City
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editCity"
+                            value="Pune"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div
+                        class="profile-edit-message"
+                        id="profileEditMessage">
+                    </div>
+
+
+                    <div class="modal-actions">
+
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            id="cancelProfileEdit">
+
+                            Cancel
+
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary">
+
+                            Save Changes
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
+        <footer class="dashboard-footer">
+
+            <span>
+                © 2026 MyBank
+            </span>
+
+            <div>
+
+                <a href="#">
+                    Privacy
+                </a>
+
+                <a href="#">
+                    Security
+                </a>
+
+                <a href="#">
+                    Help
+                </a>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+
+    <!-- =====================================================
+         AUTHENTICATION
+         ===================================================== -->
+
+    <script src="auth.js"></script>
+
+
+    <!-- =====================================================
+         PAGE JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+
+        /* ==========================================
+           PROTECT PAGE
+           ========================================== */
+
+        protectPage();
+
+
+        /* ==========================================
+           SESSION
+           ========================================== */
+
+        const session = getSession();
+
+        if (session) {
+
+            document.getElementById(
+                "topUserName"
+            ).textContent = session.name;
+
+            document.getElementById(
+                "profileName"
+            ).textContent = session.name;
+
+            document.getElementById(
+                "fullName"
+            ).textContent = session.name;
+
+        }
+
+
+        /* ==========================================
+           PASSWORD SHOW / HIDE
+           ========================================== */
+
+        const passwordToggles =
+            document.querySelectorAll(
+                ".password-toggle"
+            );
+
+
+        passwordToggles.forEach(function (button) {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    const input =
+                        document.getElementById(
+                            button.dataset.input
+                        );
+
+
+                    if (
+                        input.type === "password"
+                    ) {
+
+                        input.type = "text";
+
+                        button.textContent =
+                            "🙈";
+
+                    } else {
+
+                        input.type = "password";
+
+                        button.textContent =
+                            "👁";
+
+                    }
+
+                }
+            );
+
+        });
+
+
+        /* ==========================================
+           PASSWORD REQUIREMENTS
+           ========================================== */
+
+        const newPassword =
+            document.getElementById(
+                "newPassword"
+            );
+
+
+        function updatePasswordRules() {
+
+            const password =
+                newPassword.value;
+
+
+            const length =
+                password.length >= 8;
+
+            const upper =
+                /[A-Z]/.test(password);
+
+            const number =
+                /[0-9]/.test(password);
+
+            const special =
+                /[^A-Za-z0-9]/.test(password);
+
+
+            updateRule(
+                "ruleLength",
+                length,
+                "At least 8 characters"
+            );
+
+
+            updateRule(
+                "ruleUpper",
+                upper,
+                "One uppercase letter"
+            );
+
+
+            updateRule(
+                "ruleNumber",
+                number,
+                "One number"
+            );
+
+
+            updateRule(
+                "ruleSpecial",
+                special,
+                "One special character"
+            );
+
+        }
+
+
+        function updateRule(
+            id,
+            valid,
+            text
+        ) {
+
+            const element =
+                document.getElementById(id);
+
+
+            if (valid) {
+
+                element.textContent =
+                    "✓ " + text;
+
+                element.classList.add(
+                    "valid"
+                );
+
+            } else {
+
+                element.textContent =
+                    "○ " + text;
+
+                element.classList.remove(
+                    "valid"
+                );
+
+            }
+
+        }
+
+
+        newPassword.addEventListener(
+            "input",
+            updatePasswordRules
+        );
+
+
+        /* ==========================================
+           PASSWORD FORM
+           ========================================== */
+
+        const passwordForm =
+            document.getElementById(
+                "passwordForm"
+            );
+
+
+        const passwordMessage =
+            document.getElementById(
+                "passwordMessage"
+            );
+
+
+        passwordForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const current =
+                    document.getElementById(
+                        "currentPassword"
+                    ).value;
+
+
+                const newPass =
+                    document.getElementById(
+                        "newPassword"
+                    ).value;
+
+
+                const confirm =
+                    document.getElementById(
+                        "confirmPassword"
+                    ).value;
+
+
+                if (!current) {
+
+                    showPasswordMessage(
+                        "Enter your current password.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                if (newPass.length < 8) {
+
+                    showPasswordMessage(
+                        "Your new password must contain at least 8 characters.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                if (!/[A-Z]/.test(newPass)) {
+
+                    showPasswordMessage(
+                        "Your password needs an uppercase letter.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                if (!/[0-9]/.test(newPass)) {
+
+                    showPasswordMessage(
+                        "Your password needs a number.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                if (!/[^A-Za-z0-9]/.test(newPass)) {
+
+                    showPasswordMessage(
+                        "Your password needs a special character.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                if (newPass !== confirm) {
+
+                    showPasswordMessage(
+                        "The new passwords do not match.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                if (current === newPass) {
+
+                    showPasswordMessage(
+                        "New password must be different from the current password.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                /*
+                 * Demo only.
+                 * A real banking system must send password
+                 * changes to a secure backend over HTTPS.
+                 */
+
+                showPasswordMessage(
+                    "Password updated successfully in this demo.",
+                    "success"
+                );
+
+
+                passwordForm.reset();
+
+                updatePasswordRules();
+
+            }
+        );
+
+
+        function showPasswordMessage(
+            message,
+            type
+        ) {
+
+            passwordMessage.textContent =
+                message;
+
+            passwordMessage.className =
+                "password-message " + type;
+
+        }
+
+
+        /* ==========================================
+           SENSITIVE DATA TOGGLE
+           ========================================== */
+
+        const fieldToggles =
+            document.querySelectorAll(
+                ".field-toggle"
+            );
+
+
+        fieldToggles.forEach(function (button) {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    const target =
+                        button.dataset.target;
+
+
+                    if (target === "email") {
+
+                        const element =
+                            document.getElementById(
+                                "emailValue"
+                            );
+
+
+                        if (
+                            element.dataset.visible !==
+                            "true"
+                        ) {
+
+                            element.textContent =
+                                "alex.johnson@example.com";
+
+                            element.dataset.visible =
+                                "true";
+
+                            button.textContent =
+                                "🙈";
+
+                        } else {
+
+                            element.textContent =
+                                "a•••••••@example.com";
+
+                            element.dataset.visible =
+                                "false";
+
+                            button.textContent =
+                                "👁";
+
+                        }
+
+                    }
+
+
+                    if (target === "phone") {
+
+                        const element =
+                            document.getElementById(
+                                "phoneValue"
+                            );
+
+
+                        if (
+                            element.dataset.visible !==
+                            "true"
+                        ) {
+
+                            element.textContent =
+                                "+91 9876544589";
+
+                            element.dataset.visible =
+                                "true";
+
+                            button.textContent =
+                                "🙈";
+
+                        } else {
+
+                            element.textContent =
+                                "+91 •••••• 4589";
+
+                            element.dataset.visible =
+                                "false";
+
+                            button.textContent =
+                                "👁";
+
+                        }
+
+                    }
+
+                }
+            );
+
+        });
+
+
+        /* ==========================================
+           PROFILE MODAL
+           ========================================== */
+
+        const profileModal =
+            document.getElementById(
+                "profileModal"
+            );
+
+
+        document
+            .getElementById("editProfileButton")
+            .addEventListener(
+                "click",
+                function () {
+
+                    profileModal.classList.add(
+                        "show"
+                    );
+
+                    document.body.classList.add(
+                        "modal-open"
+                    );
+
+                }
+            );
+
+
+        function closeProfileModal() {
+
+            profileModal.classList.remove(
+                "show"
+            );
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+
+        }
+
+
+        document
+            .getElementById("closeProfileModal")
+            .addEventListener(
+                "click",
+                closeProfileModal
+            );
+
+
+        document
+            .getElementById("cancelProfileEdit")
+            .addEventListener(
+                "click",
+                closeProfileModal
+            );
+
+
+        /* ==========================================
+           PROFILE EDIT
+           ========================================== */
+
+        document
+            .getElementById("profileEditForm")
+            .addEventListener(
+                "submit",
+                function (event) {
+
+                    event.preventDefault();
+
+
+                    const name =
+                        document.getElementById(
+                            "editName"
+                        ).value.trim();
+
+
+                    const city =
+                        document.getElementById(
+                            "editCity"
+                        ).value.trim();
+
+
+                    if (name.length < 2) {
+
+                        document.getElementById(
+                            "profileEditMessage"
+                        ).textContent =
+                            "Please enter a valid name.";
+
+                        return;
+
+                    }
+
+
+                    if (city.length < 2) {
+
+                        document.getElementById(
+                            "profileEditMessage"
+                        ).textContent =
+                            "Please enter a valid city.";
+
+                        return;
+
+                    }
+
+
+                    document.getElementById(
+                        "profileName"
+                    ).textContent = name;
+
+
+                    document.getElementById(
+                        "fullName"
+                    ).textContent = name;
+
+
+                    document.getElementById(
+                        "topUserName"
+                    ).textContent = name;
+
+
+                    document.getElementById(
+                        "profileEditMessage"
+                    ).textContent =
+                        "Profile updated successfully.";
+
+
+                    setTimeout(
+                        closeProfileModal,
+                        700
+                    );
+
+                }
+            );
+
+
+        /* ==========================================
+           2FA
+           ========================================== */
+
+        document
+            .getElementById("twoFactorButton")
+            .addEventListener(
+                "click",
+                function () {
+
+                    alert(
+                        "Two-factor authentication setup will be added to the next security module."
+                    );
+
+                }
+            );
+
+
+        /* ==========================================
+           OTHER SESSIONS
+           ========================================== */
+
+        document
+            .getElementById("signOutOtherButton")
+            .addEventListener(
+                "click",
+                function () {
+
+                    const confirmed =
+                        confirm(
+                            "Sign out of all other demo sessions?"
+                        );
+
+
+                    if (confirmed) {
+
+                        alert(
+                            "All other demo sessions have been signed out."
+                        );
+
+                    }
+
+                }
+            );
+
+
+        /* ==========================================
+           SETTINGS
+           ========================================== */
+
+        document
+            .getElementById("settingsLink")
+            .addEventListener(
+                "click",
+                function (event) {
+
+                    event.preventDefault();
+
+                    alert(
+                        "Settings page will be added soon."
+                    );
+
+                }
+            );
+
+
+        /* ==========================================
+           NOTIFICATIONS
+           ========================================== */
+
+        document
+            .getElementById("notificationButton")
+            .addEventListener(
+                "click",
+                function () {
+
+                    alert(
+                        "You have 2 new notifications."
+                    );
+
+                }
+            );
+
+
+        /* ==========================================
+           MOBILE SIDEBAR
+           ========================================== */
+
+        const mobileMenuButton =
+            document.getElementById(
+                "mobileMenuButton"
+            );
+
+        const sidebar =
+            document.getElementById(
+                "sidebar"
+            );
+
+        const sidebarOverlay =
+            document.getElementById(
+                "sidebarOverlay"
+            );
+
+
+        function openSidebar() {
+
+            sidebar.classList.add(
+                "open"
+            );
+
+            sidebarOverlay.classList.add(
+                "show"
+            );
+
+            document.body.classList.add(
+                "sidebar-open"
+            );
+
+        }
+
+
+        function closeSidebar() {
+
+            sidebar.classList.remove(
+                "open"
+            );
+
+            sidebarOverlay.classList.remove(
+                "show"
+            );
+
+            document.body.classList.remove(
+                "sidebar-open"
+            );
+
+        }
+
+
+        mobileMenuButton.addEventListener(
+            "click",
+            openSidebar
+        );
+
+
+        sidebarOverlay.addEventListener(
+            "click",
+            closeSidebar
+        );
+
+
+        /* ==========================================
+           CLOSE MODAL WITH ESC
+           ========================================== */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (event.key === "Escape") {
+
+                    closeProfileModal();
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

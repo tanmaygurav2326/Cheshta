@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MyBank - Help & Support</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- =====================================================
+         SIDEBAR OVERLAY
+         ===================================================== -->
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-logo">
+
+            <div class="sidebar-logo-icon">
+                🏦
+            </div>
+
+            <div>
+                <h2>MyBank</h2>
+                <span>Online Banking</span>
+            </div>
+
+        </div>
+
+
+        <nav class="main-navigation">
+
+            <p class="nav-heading">
+                MAIN MENU
+            </p>
+
+
+            <a href="dashboard.html" class="nav-link">
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a href="accounts.html" class="nav-link">
+                <span class="nav-icon">💳</span>
+                <span>My Accounts</span>
+            </a>
+
+
+            <a href="transfer.html" class="nav-link">
+                <span class="nav-icon">↗</span>
+                <span>Transfer Money</span>
+            </a>
+
+
+            <a href="transactions.html" class="nav-link">
+                <span class="nav-icon">↕</span>
+                <span>Transactions</span>
+            </a>
+
+
+            <p class="nav-heading nav-heading-space">
+                PERSONAL
+            </p>
+
+
+            <a href="profile.html" class="nav-link">
+                <span class="nav-icon">👤</span>
+                <span>My Profile</span>
+            </a>
+
+
+            <a href="settings.html" class="nav-link">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+
+            <a href="help.html" class="nav-link active">
+                <span class="nav-icon">?</span>
+                <span>Help & Support</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="security-badge">
+
+                <span class="security-badge-icon">
+                    🔒
+                </span>
+
+                <div>
+                    <strong>Secure Banking</strong>
+                    <small>Protected session</small>
+                </div>
+
+            </div>
+
+
+            <button
+                class="logout-button"
+                onclick="logout()">
+
+                <span>↪</span>
+                <span>Logout</span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =================================================
+             TOPBAR
+             ================================================= -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    class="mobile-menu-button"
+                    id="mobileMenuButton">
+
+                    ☰
+
+                </button>
+
+
+                <div class="page-title">
+
+                    <span>Support</span>
+
+                    <h1>Help & Support</h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <button
+                    class="icon-button"
+                    id="notificationButton">
+
+                    🔔
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+                <div class="user-menu">
+
+                    <div class="user-avatar">
+                        AJ
+                    </div>
+
+                    <div class="user-details">
+
+                        <strong id="topUserName">
+                            Alex Johnson
+                        </strong>
+
+                        <span>
+                            Personal Account
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             CONTENT
+             ================================================= -->
+
+        <div class="dashboard-content">
+
+
+            <!-- =================================================
+                 HERO
+                 ================================================= -->
+
+            <section class="help-hero">
+
+                <div class="help-hero-content">
+
+                    <span class="help-hero-icon">
+                        💬
+                    </span>
+
+                    <div>
+
+                        <p>
+                            We're here to help
+                        </p>
+
+                        <h2>
+                            How can we help you?
+                        </h2>
+
+                        <span>
+                            Search our help center or choose a support option below.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="help-search">
+
+                    <span>
+                        🔍
+                    </span>
+
+                    <input
+                        type="search"
+                        id="helpSearch"
+                        placeholder="Search for answers..."
+                        autocomplete="off">
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SUPPORT CARDS
+                 ================================================= -->
+
+            <section class="support-card-grid">
+
+
+                <button
+                    class="support-card"
+                    data-support="transfers">
+
+                    <div class="support-card-icon blue">
+                        ↗
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Transfers
+                        </strong>
+
+                        <span>
+                            Help with sending and receiving money
+                        </span>
+
+                    </div>
+
+                    <span class="support-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="support-card"
+                    data-support="cards">
+
+                    <div class="support-card-icon purple">
+                        💳
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Cards & Payments
+                        </strong>
+
+                        <span>
+                            Card payments and payment problems
+                        </span>
+
+                    </div>
+
+                    <span class="support-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="support-card"
+                    data-support="account">
+
+                    <div class="support-card-icon green">
+                        👤
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Account
+                        </strong>
+
+                        <span>
+                            Profile, password and account access
+                        </span>
+
+                    </div>
+
+                    <span class="support-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="support-card"
+                    data-support="security">
+
+                    <div class="support-card-icon orange">
+                        🛡️
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Security
+                        </strong>
+
+                        <span>
+                            Protect your account and personal data
+                        </span>
+
+                    </div>
+
+                    <span class="support-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </section>
+
+
+            <!-- =================================================
+                 FAQ SECTION
+                 ================================================= -->
+
+            <section class="help-content-grid">
+
+
+                <div class="faq-card">
+
+                    <div class="faq-header">
+
+                        <div>
+
+                            <p class="welcome-small">
+                                Frequently asked
+                            </p>
+
+                            <h2>
+                                Popular Questions
+                            </h2>
+
+                        </div>
+
+                        <span>
+                            ❓
+                        </span>
+
+                    </div>
+
+
+                    <div id="faqList">
+
+
+                        <!-- FAQ 1 -->
+
+                        <div
+                            class="faq-item"
+                            data-question="How do I transfer money?">
+
+                            <button class="faq-question">
+
+                                <span>
+                                    How do I transfer money?
+                                </span>
+
+                                <span class="faq-plus">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="faq-answer">
+
+                                <p>
+                                    Open the Transfer Money page,
+                                    select the account you want to send
+                                    money from, enter the recipient details,
+                                    amount, and review the transfer before
+                                    confirming it.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FAQ 2 -->
+
+                        <div
+                            class="faq-item"
+                            data-question="How can I change my password?">
+
+                            <button class="faq-question">
+
+                                <span>
+                                    How can I change my password?
+                                </span>
+
+                                <span class="faq-plus">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="faq-answer">
+
+                                <p>
+                                    Go to My Profile and select Change
+                                    Password. Use a unique password with
+                                    uppercase letters, numbers and special
+                                    characters.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FAQ 3 -->
+
+                        <div
+                            class="faq-item"
+                            data-question="Why is my transaction pending?">
+
+                            <button class="faq-question">
+
+                                <span>
+                                    Why is my transaction pending?
+                                </span>
+
+                                <span class="faq-plus">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="faq-answer">
+
+                                <p>
+                                    Some payments and transfers require
+                                    additional processing time. Check your
+                                    Transactions page for the latest status.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FAQ 4 -->
+
+                        <div
+                            class="faq-item"
+                            data-question="How do I hide my account balance?">
+
+                            <button class="faq-question">
+
+                                <span>
+                                    How do I hide my account balance?
+                                </span>
+
+                                <span class="faq-plus">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="faq-answer">
+
+                                <p>
+                                    Open Settings and enable Hide Account
+                                    Balances under Privacy & Data.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FAQ 5 -->
+
+                        <div
+                            class="faq-item"
+                            data-question="How do I enable two factor authentication?">
+
+                            <button class="faq-question">
+
+                                <span>
+                                    How do I enable two-factor authentication?
+                                </span>
+
+                                <span class="faq-plus">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="faq-answer">
+
+                                <p>
+                                    Open Settings, select Security, and
+                                    choose Enable under Two-Factor
+                                    Authentication.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FAQ 6 -->
+
+                        <div
+                            class="faq-item"
+                            data-question="What should I do if I suspect fraud?">
+
+                            <button class="faq-question">
+
+                                <span>
+                                    What should I do if I suspect fraud?
+                                </span>
+
+                                <span class="faq-plus">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="faq-answer">
+
+                                <p>
+                                    Do not share your password, PIN or OTP.
+                                    Review your recent transactions and
+                                    contact your bank through an official
+                                    support channel immediately.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- No FAQ results -->
+
+                        <div
+                            class="faq-no-results"
+                            id="faqNoResults">
+
+                            <span>
+                                🔎
+                            </span>
+
+                            <strong>
+                                No matching questions
+                            </strong>
+
+                            <p>
+                                Try a different search term.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     CONTACT SUPPORT
+                     ================================================= -->
+
+                <aside class="contact-support-card">
+
+                    <div class="contact-support-icon">
+                        🎧
+                    </div>
+
+
+                    <h2>
+                        Still need help?
+                    </h2>
+
+
+                    <p>
+                        Our support team can help you with account
+                        questions and banking issues.
+                    </p>
+
+
+                    <div class="support-contact-option">
+
+                        <span>
+                            💬
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Live Chat
+                            </strong>
+
+                            <small>
+                                Available 24/7
+                            </small>
+
+                        </div>
+
+                        <button
+                            class="support-contact-button"
+                            id="chatButton">
+
+                            Start
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="support-contact-option">
+
+                        <span>
+                            📞
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Phone Support
+                            </strong>
+
+                            <small>
+                                Mon–Sat, 8 AM–8 PM
+                            </small>
+
+                        </div>
+
+                        <button
+                            class="support-contact-button"
+                            id="phoneButton">
+
+                            Call
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="support-contact-option">
+
+                        <span>
+                            ✉️
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Secure Message
+                            </strong>
+
+                            <small>
+                                Reply within 24 hours
+                            </small>
+
+                        </div>
+
+                        <button
+                            class="support-contact-button"
+                            id="messageButton">
+
+                            Send
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="support-security-note">
+
+                        🔒
+                        Never share your password or OTP with
+                        support staff.
+
+                    </div>
+
+                </aside>
+
+            </section>
+
+
+            <!-- =================================================
+                 SECURITY ALERT
+                 ================================================= -->
+
+            <section class="emergency-security-card">
+
+                <div class="emergency-icon">
+                    ⚠️
+                </div>
+
+
+                <div class="emergency-content">
+
+                    <h2>
+                        Think your account is compromised?
+                    </h2>
+
+                    <p>
+                        If you notice suspicious activity, secure your
+                        account immediately and contact your bank.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="btn btn-danger"
+                    id="lockAccountButton">
+
+                    🔒 Lock Account
+
+                </button>
+
+            </section>
+
+
+            <!-- =================================================
+                 SAFETY TIPS
+                 ================================================= -->
+
+            <section class="safety-tips-card">
+
+                <div class="faq-header">
+
+                    <div>
+
+                        <p class="welcome-small">
+                            Stay protected
+                        </p>
+
+                        <h2>
+                            Banking Safety Tips
+                        </h2>
+
+                    </div>
+
+                    <span>
+                        🛡️
+                    </span>
+
+                </div>
+
+
+                <div class="safety-tips-grid">
+
+
+                    <div class="safety-tip">
+
+                        <span>
+                            01
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Protect your password
+                            </strong>
+
+                            <p>
+                                Use a unique password and never share it
+                                with anyone.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="safety-tip">
+
+                        <span>
+                            02
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Never share OTPs
+                            </strong>
+
+                            <p>
+                                Bank employees will never ask for your OTP.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="safety-tip">
+
+                        <span>
+                            03
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Check website addresses
+                            </strong>
+
+                            <p>
+                                Only sign in through the official banking
+                                website or app.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="safety-tip">
+
+                        <span>
+                            04
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Review transactions
+                            </strong>
+
+                            <p>
+                                Regularly check your account activity for
+                                anything unexpected.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PROTECTION NOTE
+                 ================================================= -->
+
+            <div class="data-protection-note">
+
+                <span>
+                    🛡️
+                </span>
+
+                <p>
+                    For your protection, never share your password,
+                    PIN, OTP, CVV, or complete card/account details.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             LOCK ACCOUNT MODAL
+             ================================================= -->
+
+        <div
+            class="modal-overlay"
+            id="lockModal">
+
+            <div class="confirmation-modal">
+
+                <button
+                    class="modal-close"
+                    id="closeLockModal">
+
+                    ×
+
+                </button>
+
+
+                <div class="confirmation-icon danger">
+                    🔒
+                </div>
+
+
+                <h2>
+                    Lock Your Account?
+                </h2>
+
+
+                <p>
+                    This demo will simulate temporarily locking
+                    your banking account.
+                </p>
+
+
+                <div class="modal-warning">
+
+                    ⚠️
+                    In a real banking system, you would be asked
+                    to verify your identity before this action.
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        class="btn btn-secondary"
+                        id="cancelLock">
+
+                        Cancel
+
+                    </button>
+
+
+                    <button
+                        class="btn btn-danger"
+                        id="confirmLock">
+
+                        Lock Account
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             SUPPORT MODAL
+             ================================================= -->
+
+        <div
+            class="modal-overlay"
+            id="supportModal">
+
+            <div class="confirmation-modal">
+
+                <button
+                    class="modal-close"
+                    id="closeSupportModal">
+
+                    ×
+
+                </button>
+
+
+                <div class="confirmation-icon">
+                    💬
+                </div>
+
+
+                <h2 id="supportModalTitle">
+                    Contact Support
+                </h2>
+
+
+                <p id="supportModalText">
+                    Our support team is ready to help.
+                </p>
+
+
+                <div class="support-demo-box">
+
+                    <strong>
+                        Demo Support
+                    </strong>
+
+                    <span>
+                        This banking website is a front-end project.
+                        No real support request will be sent.
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="btn btn-primary full-width"
+                    id="closeSupportButton">
+
+                    Done
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
+        <footer class="dashboard-footer">
+
+            <span>
+                © 2026 MyBank
+            </span>
+
+            <div>
+
+                <a href="#">
+                    Privacy
+                </a>
+
+                <a href="#">
+                    Security
+                </a>
+
+                <a href="help.html">
+                    Help
+                </a>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+
+    <!-- =====================================================
+         AUTHENTICATION
+         ===================================================== -->
+
+    <script src="auth.js"></script>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+
+        /* ==========================================
+           PROTECT PAGE
+           ========================================== */
+
+        protectPage();
+
+
+        /* ==========================================
+           SESSION
+           ========================================== */
+
+        const session = getSession();
+
+        if (session) {
+
+            document.getElementById(
+                "topUserName"
+            ).textContent = session.name;
+
+        }
+
+
+        /* ==========================================
+           FAQ ACCORDION
+           ========================================== */
+
+        const faqQuestions =
+            document.querySelectorAll(
+                ".faq-question"
+            );
+
+
+        faqQuestions.forEach(function (question) {
+
+            question.addEventListener(
+                "click",
+                function () {
+
+                    const faq =
+                        question.closest(
+                            ".faq-item"
+                        );
+
+
+                    const answer =
+                        faq.querySelector(
+                            ".faq-answer"
+                        );
+
+
+                    const plus =
+                        faq.querySelector(
+                            ".faq-plus"
+                        );
+
+
+                    const isOpen =
+                        faq.classList.contains(
+                            "open"
+                        );
+
+
+                    /* Close all other FAQs */
+
+                    document
+                        .querySelectorAll(
+                            ".faq-item.open"
+                        )
+                        .forEach(function (item) {
+
+                            item.classList.remove(
+                                "open"
+                            );
+
+                            item.querySelector(
+                                ".faq-answer"
+                            ).style.maxHeight =
+                                null;
+
+                            item.querySelector(
+                                ".faq-plus"
+                            ).textContent =
+                                "+";
+
+                        });
+
+
+                    /* Open selected FAQ */
+
+                    if (!isOpen) {
+
+                        faq.classList.add(
+                            "open"
+                        );
+
+                        answer.style.maxHeight =
+                            answer.scrollHeight +
+                            "px";
+
+                        plus.textContent =
+                            "−";
+
+                    }
+
+                }
+            );
+
+        });
+
+
+        /* ==========================================
+           FAQ SEARCH
+           ========================================== */
+
+        const helpSearch =
+            document.getElementById(
+                "helpSearch"
+            );
+
+
+        const faqItems =
+            document.querySelectorAll(
+                ".faq-item"
+            );
+
+
+        const faqNoResults =
+            document.getElementById(
+                "faqNoResults"
+            );
+
+
+        helpSearch.addEventListener(
+            "input",
+            function () {
+
+                const query =
+                    helpSearch.value
+                        .trim()
+                        .toLowerCase();
+
+
+                let visible =
+                    0;
+
+
+                faqItems.forEach(
+                    function (item) {
+
+                        const text =
+                            item.textContent
+                                .toLowerCase();
+
+
+                        if (
+                            text.includes(query)
+                        ) {
+
+                            item.style.display =
+                                "";
+
+                            visible++;
+
+                        } else {
+
+                            item.style.display =
+                                "none";
+
+                        }
+
+                    }
+                );
+
+
+                if (visible === 0) {
+
+                    faqNoResults.style.display =
+                        "block";
+
+                } else {
+
+                    faqNoResults.style.display =
+                        "none";
+
+                }
+
+            }
+        );
+
+
+        /* ==========================================
+           SUPPORT CARDS
+           ========================================== */
+
+        const supportCards =
+            document.querySelectorAll(
+                ".support-card"
+            );
+
+
+        supportCards.forEach(function (card) {
+
+            card.addEventListener(
+                "click",
+                function () {
+
+                    const category =
+                        card.dataset.support;
+
+
+                    const titles = {
+
+                        transfers:
+                            "Transfers & Payments",
+
+                        cards:
+                            "Cards & Payments",
+
+                        account:
+                            "Account Support",
+
+                        security:
+                            "Security Support"
+
+                    };
+
+
+                    helpSearch.value =
+                        titles[category] || "";
+
+
+                    helpSearch.dispatchEvent(
+                        new Event("input")
+                    );
+
+
+                    document
+                        .getElementById(
+                            "faqList"
+                        )
+                        .scrollIntoView({
+                            behavior: "smooth"
+                        });
+
+                }
+            );
+
+        });
+
+
+        /* ==========================================
+           SUPPORT MODAL
+           ========================================== */
+
+        const supportModal =
+            document.getElementById(
+                "supportModal"
+            );
+
+
+        const supportModalTitle =
+            document.getElementById(
+                "supportModalTitle"
+            );
+
+
+        const supportModalText =
+            document.getElementById(
+                "supportModalText"
+            );
+
+
+        function openSupportModal(
+            title,
+            text
+        ) {
+
+            supportModalTitle.textContent =
+                title;
+
+            supportModalText.textContent =
+                text;
+
+            supportModal.classList.add(
+                "show"
+            );
+
+            document.body.classList.add(
+                "modal-open"
+            );
+
+        }
+
+
+        function closeSupportModal() {
+
+            supportModal.classList.remove(
+                "show"
+            );
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+
+        }
+
+
+        document
+            .getElementById("chatButton")
+            .addEventListener(
+                "click",
+                function () {
+
+                    openSupportModal(
+                        "Live Chat",
+                        "A secure support chat would open here."
+                    );
+
+                }
+            );
+
+
+        document
+            .getElementById("phoneButton")
+            .addEventListener(
+                "click",
+                function () {
+
+                    openSupportModal(
+                        "Phone Support",
+                        "A verified support number would be displayed here."
+                    );
+
+                }
+            );
+
+
+        document
+            .getElementById("messageButton")
+            .addEventListener(
+                "click",
+                function () {
+
+                    openSupportModal(
+                        "Secure Message",
+                        "A secure message form would open here."
+                    );
+
+                }
+            );
+
+
+        document
+            .getElementById("closeSupportModal")
+            .addEventListener(
+                "click",
+                closeSupportModal
+            );
+
+
+        document
+            .getElementById("closeSupportButton")
+            .addEventListener(
+                "click",
+                closeSupportModal
+            );
+
+
+        /* ==========================================
+           ACCOUNT LOCK MODAL
+           ========================================== */
+
+        const lockModal =
+            document.getElementById(
+                "lockModal"
+            );
+
+
+        function closeLockModal() {
+
+            lockModal.classList.remove(
+                "show"
+            );
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+
+        }
+
+
+        document
+            .getElementById("lockAccountButton")
+            .addEventListener(
+                "click",
+                function () {
+
+                    lockModal.classList.add(
+                        "show"
+                    );
+
+                    document.body.classList.add(
+                        "modal-open"
+                    );
+
+                }
+            );
+
+
+        document
+            .getElementById("closeLockModal")
+            .addEventListener(
+                "click",
+                closeLockModal
+            );
+
+
+        document
+            .getElementById("cancelLock")
+            .addEventListener(
+                "click",
+                closeLockModal
+            );
+
+
+        document
+            .getElementById("confirmLock")
+            .addEventListener(
+                "click",
+                function () {
+
+                    closeLockModal();
+
+
+                    alert(
+                        "Demo: your account has been temporarily locked."
+                    );
+
+                }
+            );
+
+
+        /* ==========================================
+           NOTIFICATIONS
+           ========================================== */
+
+        document
+            .getElementById("notificationButton")
+            .addEventListener(
+                "click",
+                function () {
+
+                    alert(
+                        "You have 2 new notifications."
+                    );
+
+                }
+            );
+
+
+        /* ==========================================
+           MOBILE SIDEBAR
+           ========================================== */
+
+        const mobileMenuButton =
+            document.getElementById(
+                "mobileMenuButton"
+            );
+
+
+        const sidebar =
+            document.getElementById(
+                "sidebar"
+            );
+
+
+        const sidebarOverlay =
+            document.getElementById(
+                "sidebarOverlay"
+            );
+
+
+        function openSidebar() {
+
+            sidebar.classList.add(
+                "open"
+            );
+
+            sidebarOverlay.classList.add(
+                "show"
+            );
+
+            document.body.classList.add(
+                "sidebar-open"
+            );
+
+        }
+
+
+        function closeSidebar() {
+
+            sidebar.classList.remove(
+                "open"
+            );
+
+            sidebarOverlay.classList.remove(
+                "show"
+            );
+
+            document.body.classList.remove(
+                "sidebar-open"
+            );
+
+        }
+
+
+        mobileMenuButton.addEventListener(
+            "click",
+            openSidebar
+        );
+
+
+        sidebarOverlay.addEventListener(
+            "click",
+            closeSidebar
+        );
+
+
+        /* ==========================================
+           ESCAPE KEY
+           ========================================== */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (event.key === "Escape") {
+
+                    closeLockModal();
+
+                    closeSupportModal();
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

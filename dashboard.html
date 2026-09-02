@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MyBank - Dashboard</title>
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- =====================================================
+         MOBILE OVERLAY
+         ===================================================== -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <!-- Logo -->
+
+        <div class="sidebar-logo">
+
+            <div class="sidebar-logo-icon">
+                🏦
+            </div>
+
+            <div>
+                <h2>MyBank</h2>
+                <span>Online Banking</span>
+            </div>
+
+        </div>
+
+
+        <!-- Navigation -->
+
+        <nav class="main-navigation">
+
+            <p class="nav-heading">
+                MAIN MENU
+            </p>
+
+            <a
+                href="dashboard.html"
+                class="nav-link active"
+            >
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a
+                href="accounts.html"
+                class="nav-link"
+            >
+                <span class="nav-icon">💳</span>
+                <span>My Accounts</span>
+            </a>
+
+            <a
+                href="transfer.html"
+                class="nav-link"
+            >
+                <span class="nav-icon">↗</span>
+                <span>Transfer Money</span>
+            </a>
+
+            <a
+                href="transactions.html"
+                class="nav-link"
+            >
+                <span class="nav-icon">↕</span>
+                <span>Transactions</span>
+            </a>
+
+
+            <p class="nav-heading nav-heading-space">
+                PERSONAL
+            </p>
+
+            <a
+                href="profile.html"
+                class="nav-link"
+            >
+                <span class="nav-icon">👤</span>
+                <span>My Profile</span>
+            </a>
+
+            <a
+                href="#"
+                class="nav-link"
+                id="settingsLink"
+            >
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <!-- Sidebar bottom -->
+
+        <div class="sidebar-bottom">
+
+            <div class="security-badge">
+
+                <span class="security-badge-icon">
+                    🔒
+                </span>
+
+                <div>
+                    <strong>Secure Banking</strong>
+                    <small>Protected session</small>
+                </div>
+
+            </div>
+
+
+            <button
+                class="logout-button"
+                onclick="logout()"
+            >
+                <span>↪</span>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =================================================
+             TOP BAR
+             ================================================= -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                    aria-label="Open navigation"
+                >
+                    ☰
+                </button>
+
+                <div class="page-title">
+
+                    <span>Overview</span>
+
+                    <h1>Dashboard</h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <!-- Notifications -->
+
+                <button
+                    class="icon-button notification-button"
+                    id="notificationButton"
+                    aria-label="Notifications"
+                >
+                    🔔
+                    <span class="notification-dot"></span>
+                </button>
+
+
+                <!-- User -->
+
+                <div class="user-menu">
+
+                    <div class="user-avatar">
+                        AJ
+                    </div>
+
+                    <div class="user-details">
+
+                        <strong id="topUserName">
+                            Alex Johnson
+                        </strong>
+
+                        <span>
+                            Personal Account
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             PAGE CONTENT
+             ================================================= -->
+
+        <div class="dashboard-content">
+
+
+            <!-- =================================================
+                 WELCOME
+                 ================================================= -->
+
+            <section class="welcome-section">
+
+                <div>
+
+                    <p class="welcome-small">
+                        Good morning 👋
+                    </p>
+
+                    <h2 id="welcomeName">
+                        Alex Johnson
+                    </h2>
+
+                    <p>
+                        Here's what's happening with your money today.
+                    </p>
+
+                </div>
+
+
+                <div class="date-display">
+
+                    <span>Today</span>
+
+                    <strong id="currentDate">
+                        02 Sep 2026
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 BALANCE CARDS
+                 ================================================= -->
+
+            <section class="dashboard-cards">
+
+
+                <!-- Total Balance -->
+
+                <div class="balance-card-large">
+
+                    <div class="balance-card-top">
+
+                        <div>
+
+                            <span class="card-label">
+                                Total Balance
+                            </span>
+
+                            <div class="balance-value">
+
+                                <span id="balanceAmount">
+                                    ₹25,000.00
+                                </span>
+
+                                <button
+                                    id="balanceToggle"
+                                    class="balance-toggle"
+                                    aria-label="Hide balance"
+                                >
+                                    👁
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="balance-card-icon">
+                            ₹
+                        </div>
+
+                    </div>
+
+
+                    <div class="balance-card-bottom">
+
+                        <div>
+
+                            <span>
+                                Available balance
+                            </span>
+
+                            <strong id="availableBalance">
+                                ₹25,000.00
+                            </strong>
+
+                        </div>
+
+                        <div class="balance-growth">
+                            <span>↗</span>
+                            4.8%
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Savings -->
+
+                <div class="account-summary-card">
+
+                    <div class="summary-card-header">
+
+                        <div class="summary-icon savings-icon">
+                            $
+                        </div>
+
+                        <span class="account-status">
+                            Active
+                        </span>
+
+                    </div>
+
+                    <p class="summary-label">
+                        Savings Account
+                    </p>
+
+                    <h3>
+                        ₹18,500.00
+                    </h3>
+
+                    <p class="account-number">
+                        **** **** 4589
+                    </p>
+
+                </div>
+
+
+                <!-- Checking -->
+
+                <div class="account-summary-card">
+
+                    <div class="summary-card-header">
+
+                        <div class="summary-icon checking-icon">
+                            ₹
+                        </div>
+
+                        <span class="account-status">
+                            Active
+                        </span>
+
+                    </div>
+
+                    <p class="summary-label">
+                        Current Account
+                    </p>
+
+                    <h3>
+                        ₹6,500.00
+                    </h3>
+
+                    <p class="account-number">
+                        **** **** 7921
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 QUICK ACTIONS
+                 ================================================= -->
+
+            <section class="dashboard-section">
+
+                <div class="section-header">
+
+                    <div>
+                        <h2>Quick Actions</h2>
+
+                        <p>
+                            Manage your money quickly
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="quick-actions">
+
+                    <a
+                        href="transfer.html"
+                        class="quick-action"
+                    >
+
+                        <div class="quick-action-icon blue">
+                            ↗
+                        </div>
+
+                        <div>
+                            <strong>Send Money</strong>
+                            <span>Transfer funds</span>
+                        </div>
+
+                        <span class="action-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <button
+                        class="quick-action"
+                        id="depositButton"
+                    >
+
+                        <div class="quick-action-icon green">
+                            +
+                        </div>
+
+                        <div>
+                            <strong>Deposit</strong>
+                            <span>Add money</span>
+                        </div>
+
+                        <span class="action-arrow">
+                            →
+                        </span>
+
+                    </button>
+
+
+                    <a
+                        href="transactions.html"
+                        class="quick-action"
+                    >
+
+                        <div class="quick-action-icon purple">
+                            ↕
+                        </div>
+
+                        <div>
+                            <strong>Transactions</strong>
+                            <span>View activity</span>
+                        </div>
+
+                        <span class="action-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="profile.html"
+                        class="quick-action"
+                    >
+
+                        <div class="quick-action-icon orange">
+                            👤
+                        </div>
+
+                        <div>
+                            <strong>Profile</strong>
+                            <span>Account settings</span>
+                        </div>
+
+                        <span class="action-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 LOWER GRID
+                 ================================================= -->
+
+            <div class="dashboard-grid">
+
+
+                <!-- =================================================
+                     RECENT TRANSACTIONS
+                     ================================================= -->
+
+                <section class="dashboard-section transactions-card">
+
+                    <div class="section-header">
+
+                        <div>
+                            <h2>Recent Transactions</h2>
+
+                            <p>
+                                Your latest account activity
+                            </p>
+                        </div>
+
+                        <a
+                            href="transactions.html"
+                            class="view-all"
+                        >
+                            View all →
+                        </a>
+
+                    </div>
+
+
+                    <div class="transaction-list">
+
+
+                        <!-- Transaction 1 -->
+
+                        <div class="transaction-item">
+
+                            <div class="transaction-left">
+
+                                <div class="transaction-icon salary">
+                                    ↓
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Salary
+                                    </strong>
+
+                                    <span>
+                                        Today, 09:30 AM
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="transaction-right credit">
+                                +₹50,000
+                            </div>
+
+                        </div>
+
+
+                        <!-- Transaction 2 -->
+
+                        <div class="transaction-item">
+
+                            <div class="transaction-left">
+
+                                <div class="transaction-icon bill">
+                                    ⚡
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Electricity Bill
+                                    </strong>
+
+                                    <span>
+                                        Yesterday, 04:15 PM
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="transaction-right debit">
+                                -₹2,500
+                            </div>
+
+                        </div>
+
+
+                        <!-- Transaction 3 -->
+
+                        <div class="transaction-item">
+
+                            <div class="transaction-left">
+
+                                <div class="transaction-icon shopping">
+                                    🛍
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Online Shopping
+                                    </strong>
+
+                                    <span>
+                                        30 Aug, 11:20 AM
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="transaction-right debit">
+                                -₹1,200
+                            </div>
+
+                        </div>
+
+
+                        <!-- Transaction 4 -->
+
+                        <div class="transaction-item">
+
+                            <div class="transaction-left">
+
+                                <div class="transaction-icon transfer">
+                                    ↗
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Transfer to Rahul
+                                    </strong>
+
+                                    <span>
+                                        28 Aug, 02:45 PM
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="transaction-right debit">
+                                -₹3,000
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     SPENDING / ACCOUNT INFO
+                     ================================================= -->
+
+                <section class="dashboard-section spending-card">
+
+                    <div class="section-header">
+
+                        <div>
+                            <h2>Monthly Overview</h2>
+
+                            <p>
+                                September 2026
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="spending-total">
+
+                        <span>Total spending</span>
+
+                        <strong>
+                            ₹6,700
+                        </strong>
+
+                    </div>
+
+
+                    <!-- Progress -->
+
+                    <div class="progress-container">
+
+                        <div class="progress-bar">
+
+                            <div
+                                class="progress-value"
+                                style="width: 42%"
+                            ></div>
+
+                        </div>
+
+                        <div class="progress-labels">
+
+                            <span>
+                                ₹6,700 spent
+                            </span>
+
+                            <span>
+                                ₹16,000 budget
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Categories -->
+
+                    <div class="spending-categories">
+
+                        <div class="spending-category">
+
+                            <span class="category-dot blue-dot"></span>
+
+                            <div>
+                                <strong>Shopping</strong>
+                                <span>₹2,200</span>
+                            </div>
+
+                            <b>33%</b>
+
+                        </div>
+
+
+                        <div class="spending-category">
+
+                            <span class="category-dot orange-dot"></span>
+
+                            <div>
+                                <strong>Bills</strong>
+                                <span>₹2,500</span>
+                            </div>
+
+                            <b>37%</b>
+
+                        </div>
+
+
+                        <div class="spending-category">
+
+                            <span class="category-dot purple-dot"></span>
+
+                            <div>
+                                <strong>Food</strong>
+                                <span>₹1,300</span>
+                            </div>
+
+                            <b>19%</b>
+
+                        </div>
+
+
+                        <div class="spending-category">
+
+                            <span class="category-dot green-dot"></span>
+
+                            <div>
+                                <strong>Other</strong>
+                                <span>₹700</span>
+                            </div>
+
+                            <b>11%</b>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+            <!-- =================================================
+                 SECURITY NOTICE
+                 ================================================= -->
+
+            <div class="dashboard-security-notice">
+
+                <div class="notice-icon">
+                    🔒
+                </div>
+
+                <div>
+
+                    <strong>
+                        Your account is protected
+                    </strong>
+
+                    <p>
+                        Never share your password, PIN or
+                        verification codes with anyone.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
+        <footer class="dashboard-footer">
+
+            <span>
+                © 2026 MyBank
+            </span>
+
+            <div>
+                <a href="#">Privacy</a>
+                <a href="#">Security</a>
+                <a href="#">Help</a>
+            </div>
+
+        </footer>
+
+    </main>
+
+
+    <!-- =====================================================
+         DASHBOARD JAVASCRIPT
+         ===================================================== -->
+
+    <script src="auth.js"></script>
+
+    <script>
+
+        /* ==========================================
+           PROTECT DASHBOARD
+           ========================================== */
+
+        protectPage();
+
+
+        /* ==========================================
+           GET USER SESSION
+           ========================================== */
+
+        const session = getSession();
+
+
+        if (session) {
+
+            const welcomeName =
+                document.getElementById("welcomeName");
+
+            const topUserName =
+                document.getElementById("topUserName");
+
+
+            if (welcomeName) {
+                welcomeName.textContent =
+                    session.name;
+            }
+
+
+            if (topUserName) {
+                topUserName.textContent =
+                    session.name;
+            }
+
+        }
+
+
+        /* ==========================================
+           CURRENT DATE
+           ========================================== */
+
+        const currentDate =
+            document.getElementById("currentDate");
+
+        if (currentDate) {
+
+            const today =
+                new Date();
+
+            currentDate.textContent =
+                today.toLocaleDateString(
+                    "en-IN",
+                    {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric"
+                    }
+                );
+
+        }
+
+
+        /* ==========================================
+           HIDE / SHOW BALANCE
+           ========================================== */
+
+        const balanceToggle =
+            document.getElementById("balanceToggle");
+
+        const balanceAmount =
+            document.getElementById("balanceAmount");
+
+        const availableBalance =
+            document.getElementById("availableBalance");
+
+
+        let balanceVisible = true;
+
+
+        balanceToggle.addEventListener(
+            "click",
+            function () {
+
+                balanceVisible =
+                    !balanceVisible;
+
+
+                if (balanceVisible) {
+
+                    balanceAmount.textContent =
+                        "₹25,000.00";
+
+                    availableBalance.textContent =
+                        "₹25,000.00";
+
+                    balanceToggle.textContent =
+                        "👁";
+
+                    balanceToggle.setAttribute(
+                        "aria-label",
+                        "Hide balance"
+                    );
+
+                } else {
+
+                    balanceAmount.textContent =
+                        "₹••••••••";
+
+                    availableBalance.textContent =
+                        "₹••••••••";
+
+                    balanceToggle.textContent =
+                        "🙈";
+
+                    balanceToggle.setAttribute(
+                        "aria-label",
+                        "Show balance"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* ==========================================
+           MOBILE SIDEBAR
+           ========================================== */
+
+        const mobileMenuButton =
+            document.getElementById(
+                "mobileMenuButton"
+            );
+
+        const sidebar =
+            document.getElementById("sidebar");
+
+        const sidebarOverlay =
+            document.getElementById(
+                "sidebarOverlay"
+            );
+
+
+        function openSidebar() {
+
+            sidebar.classList.add("open");
+
+            sidebarOverlay.classList.add("show");
+
+            document.body.classList.add(
+                "sidebar-open"
+            );
+
+        }
+
+
+        function closeSidebar() {
+
+            sidebar.classList.remove("open");
+
+            sidebarOverlay.classList.remove(
+                "show"
+            );
+
+            document.body.classList.remove(
+                "sidebar-open"
+            );
+
+        }
+
+
+        mobileMenuButton.addEventListener(
+            "click",
+            openSidebar
+        );
+
+
+        sidebarOverlay.addEventListener(
+            "click",
+            closeSidebar
+        );
+
+
+        /* ==========================================
+           SETTINGS DEMO
+           ========================================== */
+
+        const settingsLink =
+            document.getElementById(
+                "settingsLink"
+            );
+
+
+        settingsLink.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+                alert(
+                    "Settings page will be added soon."
+                );
+
+            }
+        );
+
+
+        /* ==========================================
+           NOTIFICATION DEMO
+           ========================================== */
+
+        const notificationButton =
+            document.getElementById(
+                "notificationButton"
+            );
+
+
+        notificationButton.addEventListener(
+            "click",
+            function () {
+
+                alert(
+                    "You have 2 new notifications."
+                );
+
+            }
+        );
+
+
+        /* ==========================================
+           DEPOSIT DEMO
+           ========================================== */
+
+        const depositButton =
+            document.getElementById(
+                "depositButton"
+            );
+
+
+        depositButton.addEventListener(
+            "click",
+            function () {
+
+                alert(
+                    "Deposit functionality will be connected to the Accounts page."
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>

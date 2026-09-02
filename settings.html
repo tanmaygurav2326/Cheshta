@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MyBank - Settings</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- =====================================================
+         SIDEBAR OVERLAY
+         ===================================================== -->
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-logo">
+
+            <div class="sidebar-logo-icon">
+                🏦
+            </div>
+
+            <div>
+                <h2>MyBank</h2>
+                <span>Online Banking</span>
+            </div>
+
+        </div>
+
+
+        <nav class="main-navigation">
+
+            <p class="nav-heading">
+                MAIN MENU
+            </p>
+
+            <a href="dashboard.html" class="nav-link">
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="accounts.html" class="nav-link">
+                <span class="nav-icon">💳</span>
+                <span>My Accounts</span>
+            </a>
+
+            <a href="transfer.html" class="nav-link">
+                <span class="nav-icon">↗</span>
+                <span>Transfer Money</span>
+            </a>
+
+            <a href="transactions.html" class="nav-link">
+                <span class="nav-icon">↕</span>
+                <span>Transactions</span>
+            </a>
+
+
+            <p class="nav-heading nav-heading-space">
+                PERSONAL
+            </p>
+
+            <a href="profile.html" class="nav-link">
+                <span class="nav-icon">👤</span>
+                <span>My Profile</span>
+            </a>
+
+            <a href="settings.html" class="nav-link active">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="security-badge">
+
+                <span class="security-badge-icon">
+                    🔒
+                </span>
+
+                <div>
+                    <strong>Secure Banking</strong>
+                    <small>Protected session</small>
+                </div>
+
+            </div>
+
+
+            <button class="logout-button" onclick="logout()">
+
+                <span>↪</span>
+                <span>Logout</span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =================================================
+             TOPBAR
+             ================================================= -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                    aria-label="Open menu">
+
+                    ☰
+
+                </button>
+
+
+                <div class="page-title">
+
+                    <span>Personal</span>
+
+                    <h1>Settings</h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <button
+                    class="icon-button"
+                    id="notificationButton"
+                    aria-label="Notifications">
+
+                    🔔
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+                <div class="user-menu">
+
+                    <div class="user-avatar">
+                        AJ
+                    </div>
+
+                    <div class="user-details">
+
+                        <strong id="topUserName">
+                            Alex Johnson
+                        </strong>
+
+                        <span>
+                            Personal Account
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             CONTENT
+             ================================================= -->
+
+        <div class="dashboard-content">
+
+
+            <!-- =================================================
+                 INTRO
+                 ================================================= -->
+
+            <section class="welcome-section">
+
+                <div>
+
+                    <p class="welcome-small">
+                        Preferences
+                    </p>
+
+                    <h2>
+                        Account Settings
+                    </h2>
+
+                    <p>
+                        Customize your MyBank experience and security preferences.
+                    </p>
+
+                </div>
+
+
+                <div class="settings-saved" id="settingsSaved">
+                    ✓ Changes saved
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SETTINGS LAYOUT
+                 ================================================= -->
+
+            <div class="settings-layout">
+
+
+                <!-- =================================================
+                     SETTINGS NAVIGATION
+                     ================================================= -->
+
+                <aside class="settings-navigation">
+
+                    <button
+                        class="settings-tab active"
+                        data-section="general">
+
+                        <span>⚙️</span>
+
+                        <div>
+                            <strong>General</strong>
+                            <small>Basic preferences</small>
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        class="settings-tab"
+                        data-section="notifications">
+
+                        <span>🔔</span>
+
+                        <div>
+                            <strong>Notifications</strong>
+                            <small>Alerts & messages</small>
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        class="settings-tab"
+                        data-section="security">
+
+                        <span>🛡️</span>
+
+                        <div>
+                            <strong>Security</strong>
+                            <small>Login protection</small>
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        class="settings-tab"
+                        data-section="privacy">
+
+                        <span>🔐</span>
+
+                        <div>
+                            <strong>Privacy</strong>
+                            <small>Data controls</small>
+                        </div>
+
+                    </button>
+
+                </aside>
+
+
+                <!-- =================================================
+                     SETTINGS CONTENT
+                     ================================================= -->
+
+                <div class="settings-content">
+
+
+                    <!-- =================================================
+                         GENERAL
+                         ================================================= -->
+
+                    <section
+                        class="settings-section active"
+                        id="generalSection">
+
+
+                        <div class="settings-section-header">
+
+                            <div>
+
+                                <h2>
+                                    General Preferences
+                                </h2>
+
+                                <p>
+                                    Choose how MyBank looks and behaves.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Appearance -->
+
+                        <div class="settings-item">
+
+                            <div class="settings-item-info">
+
+                                <div class="settings-item-icon">
+                                    🎨
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Appearance
+                                    </strong>
+
+                                    <span>
+                                        Select your preferred interface theme.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <select
+                                class="settings-select"
+                                id="themeSelect">
+
+                                <option value="light">
+                                    Light
+                                </option>
+
+                                <option value="dark">
+                                    Dark
+                                </option>
+
+                                <option value="system">
+                                    System Default
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Language -->
+
+                        <div class="settings-item">
+
+                            <div class="settings-item-info">
+
+                                <div class="settings-item-icon">
+                                    🌐
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Language
+                                    </strong>
+
+                                    <span>
+                                        Choose your preferred language.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <select
+                                class="settings-select"
+                                id="languageSelect">
+
+                                <option>
+                                    English
+                                </option>
+
+                                <option>
+                                    Hindi
+                                </option>
+
+                                <option>
+                                    Marathi
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Currency -->
+
+                        <div class="settings-item">
+
+                            <div class="settings-item-info">
+
+                                <div class="settings-item-icon">
+                                    ₹
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Currency
+                                    </strong>
+
+                                    <span>
+                                        Currency displayed throughout your account.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <select
+                                class="settings-select"
+                                id="currencySelect">
+
+                                <option>
+                                    INR — Indian Rupee
+                                </option>
+
+                                <option>
+                                    USD — US Dollar
+                                </option>
+
+                                <option>
+                                    EUR — Euro
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Save -->
+
+                        <div class="settings-actions">
+
+                            <button
+                                class="btn btn-primary"
+                                onclick="saveSettings()">
+
+                                Save Preferences
+
+                            </button>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =================================================
+                         NOTIFICATIONS
+                         ================================================= -->
+
+                    <section
+                        class="settings-section"
+                        id="notificationsSection">
+
+
+                        <div class="settings-section-header">
+
+                            <div>
+
+                                <h2>
+                                    Notifications
+                                </h2>
+
+                                <p>
+                                    Decide which alerts you want to receive.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Transaction alerts -->
+
+                        <div class="settings-toggle-item">
+
+                            <div class="settings-item-info">
+
+                                <div class="settings-item-icon">
+                                    💸
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Transaction Alerts
+                                    </strong>
+
+                                    <span>
+                                        Get notified when money enters or leaves your account.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <label class="toggle-switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="transactionAlerts"
+                                    checked>
+
+                                <span class="toggle-slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- Login alerts -->
+
+                        <div class="settings-toggle-item">
+
+                            <div class="settings-item-info">
+
+                                <div class="settings-item-icon">
+                                    🔑
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Login Alerts
+                                    </strong>
+
+                                    <span>
+                                        Receive an alert when your account is accessed.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <label class="toggle-switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="loginAlerts"
+                                    checked>
+
+                                <span class="toggle-slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- Security alerts -->
+
+                        <div class="settings-toggle-item">
+
+                            <div class="settings-item-info">
+
+                                <div class="settings-item-icon">
+                                    🛡️
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Security Alerts
+                                    </strong>
+
+                                    <span>
+                                        Important security notifications cannot be disabled.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <label class="toggle-switch">
+
+                                <input
+                                    type="checkbox"
+                                    checked
+                                    disabled>
+
+                                <span class="toggle-slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- Promotional -->
+
+                        <div class="settings-toggle-item">
+
+                            <div class="settings-item-info">
+
+                                <div class="settings-item-icon">
+                                    📣
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Promotional Messages
+                                    </strong>
+
+                                    <span>
+                                        Receive product and service announcements.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <label class="toggle-switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="marketingAlerts">
+
+                                <span class="toggle-slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="settings-actions">
+
+                            <button
+                                class="btn btn-primary"
+                                onclick="saveSettings()">
+
+                                Save Notification Settings
+
+                            </button>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =================================================
+                         SECURITY
+                         ================================================= -->
+
+                    <section
+                        class="settings-section"
+                        id="securitySection">
+
+
+                        <div class="settings-section-header">
+
+                            <div>
+
+                                <h2>
+                                    Security Settings
+                                </h2>
+
+                                <p>
+                                    Manage the security of your banking account.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Two factor -->
+
+                        <div class="settings-security-card">
+
+                            <div class="settings-security-icon green">
+                                ✓
+                            </div>
+
+                            <div class="settings-security-content">
+
+                                <strong>
+                                    Two-Factor Authentication
+                                </strong>
+
+                                <p>
+                                    Add an extra verification step when signing in.
+                                </p>
+
+                                <span class="security-status disabled-status">
+                                    Not enabled
+                                </span>
+
+                            </div>
+
+
+                            <button
+                                class="btn btn-primary"
+                                id="enable2FA">
+
+                                Enable
+
+                            </button>
+
+                        </div>
+
+
+                        <!-- Password -->
+
+                        <div class="settings-security-card">
+
+                            <div class="settings-security-icon blue">
+                                🔑
+                            </div>
+
+                            <div class="settings-security-content">
+
+                                <strong>
+                                    Password
+                                </strong>
+
+                                <p>
+                                    Last changed more than 30 days ago.
+                                </p>
+
+                                <span class="security-status">
+                                    Password protected
+                                </span>
+
+                            </div>
+
+
+                            <a
+                                href="profile.html"
+                                class="btn btn-secondary">
+
+                                Change Password
+
+                            </a>
+
+                        </div>
+
+
+                        <!-- Login -->
+
+                        <div class="settings-security-card">
+
+                            <div class="settings-security-icon purple">
+                                🖥️
+                            </div>
+
+                            <div class="settings-security-content">
+
+                                <strong>
+                                    Login Activity
+                                </strong>
+
+                                <p>
+                                    Review devices that recently accessed your account.
+                                </p>
+
+                            </div>
+
+
+                            <a
+                                href="profile.html"
+                                class="btn btn-secondary">
+
+                                View Activity
+
+                            </a>
+
+                        </div>
+
+
+                        <!-- Session -->
+
+                        <div class="settings-security-card danger-card">
+
+                            <div class="settings-security-icon red">
+                                🚪
+                            </div>
+
+                            <div class="settings-security-content">
+
+                                <strong>
+                                    Sign Out Other Sessions
+                                </strong>
+
+                                <p>
+                                    Sign out from every device except this one.
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                class="btn btn-danger-outline"
+                                id="signOutSessions">
+
+                                Sign Out
+
+                            </button>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =================================================
+                         PRIVACY
+                         ================================================= -->
+
+                    <section
+                        class="settings-section"
+                        id="privacySection">
+
+
+                        <div class="settings-section-header">
+
+                            <div>
+
+                                <h2>
+                                    Privacy & Data
+                                </h2>
+
+                                <p>
+                                    Control how sensitive information is displayed.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Mask balances -->
+
+                        <div class="settings-toggle-item">
+
+                            <div class="settings-item-info">
+
+                                <div class="settings-item-icon">
+                                    💰
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Hide Account Balances
+                                    </strong>
+
+                                    <span>
+                                        Mask balances when viewing your dashboard.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <label class="toggle-switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="hideBalances"
+                                    checked>
+
+                                <span class="toggle-slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- Mask account numbers -->
+
+                        <div class="settings-toggle-item">
+
+                            <div class="settings-item-info">
+
+                                <div class="settings-item-icon">
+                                    💳
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Mask Account Numbers
+                                    </strong>
+
+                                    <span>
+                                        Show only the last four digits of account numbers.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <label class="toggle-switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="maskAccounts"
+                                    checked>
+
+                                <span class="toggle-slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- Auto logout -->
+
+                        <div class="settings-item">
+
+                            <div class="settings-item-info">
+
+                                <div class="settings-item-icon">
+                                    ⏱️
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Automatic Logout
+                                    </strong>
+
+                                    <span>
+                                        Automatically end your session after inactivity.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <select
+                                class="settings-select"
+                                id="logoutTime">
+
+                                <option value="5">
+                                    5 minutes
+                                </option>
+
+                                <option value="10" selected>
+                                    10 minutes
+                                </option>
+
+                                <option value="15">
+                                    15 minutes
+                                </option>
+
+                                <option value="30">
+                                    30 minutes
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Privacy notice -->
+
+                        <div class="privacy-notice">
+
+                            <span>
+                                🔒
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Your privacy matters
+                                </strong>
+
+                                <p>
+                                    Never share your password, PIN, OTP,
+                                    card security code, or complete account
+                                    number with anyone.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="settings-actions">
+
+                            <button
+                                class="btn btn-primary"
+                                onclick="saveSettings()">
+
+                                Save Privacy Settings
+
+                            </button>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SECURITY FOOTER
+                 ================================================= -->
+
+            <div class="data-protection-note">
+
+                <span>
+                    🛡️
+                </span>
+
+                <p>
+                    MyBank security settings are protected.
+                    This front-end project uses demo data only.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             2FA MODAL
+             ================================================= -->
+
+        <div
+            class="modal-overlay"
+            id="twoFactorModal">
+
+            <div class="confirmation-modal">
+
+                <button
+                    class="modal-close"
+                    id="close2FAModal">
+
+                    ×
+
+                </button>
+
+
+                <div class="confirmation-icon">
+                    🛡️
+                </div>
+
+
+                <h2>
+                    Enable Two-Factor Authentication
+                </h2>
+
+
+                <p>
+                    In a real banking application, you would verify
+                    your identity before enabling 2FA.
+                </p>
+
+
+                <div class="demo-code-box">
+
+                    <span>
+                        Demo verification code
+                    </span>
+
+                    <strong>
+                        ••••••
+                    </strong>
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        class="btn btn-secondary"
+                        id="cancel2FA">
+
+                        Cancel
+
+                    </button>
+
+
+                    <button
+                        class="btn btn-primary"
+                        id="confirm2FA">
+
+                        Continue
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
+        <footer class="dashboard-footer">
+
+            <span>
+                © 2026 MyBank
+            </span>
+
+            <div>
+
+                <a href="#">
+                    Privacy
+                </a>
+
+                <a href="#">
+                    Security
+                </a>
+
+                <a href="#">
+                    Help
+                </a>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+
+    <!-- =====================================================
+         AUTHENTICATION
+         ===================================================== -->
+
+    <script src="auth.js"></script>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+
+        /* ==========================================
+           PROTECT PAGE
+           ========================================== */
+
+        protectPage();
+
+
+        /* ==========================================
+           SESSION
+           ========================================== */
+
+        const session = getSession();
+
+        if (session) {
+
+            document.getElementById(
+                "topUserName"
+            ).textContent = session.name;
+
+        }
+
+
+        /* ==========================================
+           SETTINGS TABS
+           ========================================== */
+
+        const tabs =
+            document.querySelectorAll(
+                ".settings-tab"
+            );
+
+
+        const sections =
+            document.querySelectorAll(
+                ".settings-section"
+            );
+
+
+        tabs.forEach(function (tab) {
+
+            tab.addEventListener(
+                "click",
+                function () {
+
+                    const section =
+                        tab.dataset.section;
+
+
+                    tabs.forEach(function (item) {
+
+                        item.classList.remove(
+                            "active"
+                        );
+
+                    });
+
+
+                    sections.forEach(function (item) {
+
+                        item.classList.remove(
+                            "active"
+                        );
+
+                    });
+
+
+                    tab.classList.add(
+                        "active"
+                    );
+
+
+                    const target =
+                        document.getElementById(
+                            section + "Section"
+                        );
+
+
+                    if (target) {
+
+                        target.classList.add(
+                            "active"
+                        );
+
+                    }
+
+                }
+            );
+
+        });
+
+
+        /* ==========================================
+           SAVE SETTINGS
+           ========================================== */
+
+        function saveSettings() {
+
+            const settings = {
+
+                theme:
+                    document.getElementById(
+                        "themeSelect"
+                    ).value,
+
+                language:
+                    document.getElementById(
+                        "languageSelect"
+                    ).value,
+
+                currency:
+                    document.getElementById(
+                        "currencySelect"
+                    ).value,
+
+                transactionAlerts:
+                    document.getElementById(
+                        "transactionAlerts"
+                    )?.checked ?? true,
+
+                loginAlerts:
+                    document.getElementById(
+                        "loginAlerts"
+                    )?.checked ?? true,
+
+                marketingAlerts:
+                    document.getElementById(
+                        "marketingAlerts"
+                    )?.checked ?? false,
+
+                hideBalances:
+                    document.getElementById(
+                        "hideBalances"
+                    )?.checked ?? true,
+
+                maskAccounts:
+                    document.getElementById(
+                        "maskAccounts"
+                    )?.checked ?? true,
+
+                logoutTime:
+                    document.getElementById(
+                        "logoutTime"
+                    )?.value ?? "10"
+
+            };
+
+
+            /*
+             * Demo storage only.
+             * Do not store sensitive authentication
+             * credentials in localStorage.
+             */
+
+            localStorage.setItem(
+                "mybankSettings",
+                JSON.stringify(settings)
+            );
+
+
+            showSavedMessage();
+
+        }
+
+
+        /* ==========================================
+           SAVED MESSAGE
+           ========================================== */
+
+        function showSavedMessage() {
+
+            const message =
+                document.getElementById(
+                    "settingsSaved"
+                );
+
+
+            message.classList.add(
+                "show"
+            );
+
+
+            setTimeout(
+                function () {
+
+                    message.classList.remove(
+                        "show"
+                    );
+
+                },
+                2500
+            );
+
+        }
+
+
+        /* ==========================================
+           LOAD SETTINGS
+           ========================================== */
+
+        function loadSettings() {
+
+            const saved =
+                localStorage.getItem(
+                    "mybankSettings"
+                );
+
+
+            if (!saved) {
+
+                return;
+
+            }
+
+
+            try {
+
+                const settings =
+                    JSON.parse(saved);
+
+
+                if (settings.theme) {
+
+                    document.getElementById(
+                        "themeSelect"
+                    ).value =
+                        settings.theme;
+
+                }
+
+
+                if (settings.language) {
+
+                    document.getElementById(
+                        "languageSelect"
+                    ).value =
+                        settings.language;
+
+                }
+
+
+                if (settings.currency) {
+
+                    document.getElementById(
+                        "currencySelect"
+                    ).value =
+                        settings.currency;
+
+                }
+
+
+                if (
+                    typeof settings.transactionAlerts ===
+                    "boolean"
+                ) {
+
+                    document.getElementById(
+                        "transactionAlerts"
+                    ).checked =
+                        settings.transactionAlerts;
+
+                }
+
+
+                if (
+                    typeof settings.loginAlerts ===
+                    "boolean"
+                ) {
+
+                    document.getElementById(
+                        "loginAlerts"
+                    ).checked =
+                        settings.loginAlerts;
+
+                }
+
+
+                if (
+                    typeof settings.marketingAlerts ===
+                    "boolean"
+                ) {
+
+                    document.getElementById(
+                        "marketingAlerts"
+                    ).checked =
+                        settings.marketingAlerts;
+
+                }
+
+
+                if (
+                    typeof settings.hideBalances ===
+                    "boolean"
+                ) {
+
+                    document.getElementById(
+                        "hideBalances"
+                    ).checked =
+                        settings.hideBalances;
+
+                }
+
+
+                if (
+                    typeof settings.maskAccounts ===
+                    "boolean"
+                ) {
+
+                    document.getElementById(
+                        "maskAccounts"
+                    ).checked =
+                        settings.maskAccounts;
+
+                }
+
+
+                if (settings.logoutTime) {
+
+                    document.getElementById(
+                        "logoutTime"
+                    ).value =
+                        settings.logoutTime;
+
+                }
+
+            } catch (error) {
+
+                console.log(
+                    "Could not load settings."
+                );
+
+            }
+
+        }
+
+
+        loadSettings();
+
+
+        /* ==========================================
+           2FA MODAL
+           ========================================== */
+
+        const twoFactorModal =
+            document.getElementById(
+                "twoFactorModal"
+            );
+
+
+        document
+            .getElementById("enable2FA")
+            .addEventListener(
+                "click",
+                function () {
+
+                    twoFactorModal.classList.add(
+                        "show"
+                    );
+
+                    document.body.classList.add(
+                        "modal-open"
+                    );
+
+                }
+            );
+
+
+        function close2FA() {
+
+            twoFactorModal.classList.remove(
+                "show"
+            );
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+
+        }
+
+
+        document
+            .getElementById("close2FAModal")
+            .addEventListener(
+                "click",
+                close2FA
+            );
+
+
+        document
+            .getElementById("cancel2FA")
+            .addEventListener(
+                "click",
+                close2FA
+            );
+
+
+        document
+            .getElementById("confirm2FA")
+            .addEventListener(
+                "click",
+                function () {
+
+                    close2FA();
+
+
+                    const button =
+                        document.getElementById(
+                            "enable2FA"
+                        );
+
+
+                    button.textContent =
+                        "Enabled";
+
+                    button.disabled =
+                        true;
+
+
+                    button.classList.add(
+                        "success-button"
+                    );
+
+
+                    alert(
+                        "Two-factor authentication is enabled in this demo."
+                    );
+
+                }
+            );
+
+
+        /* ==========================================
+           SIGN OUT OTHER SESSIONS
+           ========================================== */
+
+        document
+            .getElementById("signOutSessions")
+            .addEventListener(
+                "click",
+                function () {
+
+                    const confirmed =
+                        confirm(
+                            "Sign out of all other sessions?"
+                        );
+
+
+                    if (confirmed) {
+
+                        alert(
+                            "All other demo sessions have been signed out."
+                        );
+
+                    }
+
+                }
+            );
+
+
+        /* ==========================================
+           NOTIFICATIONS
+           ========================================== */
+
+        document
+            .getElementById("notificationButton")
+            .addEventListener(
+                "click",
+                function () {
+
+                    alert(
+                        "You have 2 new notifications."
+                    );
+
+                }
+            );
+
+
+        /* ==========================================
+           MOBILE SIDEBAR
+           ========================================== */
+
+        const mobileMenuButton =
+            document.getElementById(
+                "mobileMenuButton"
+            );
+
+
+        const sidebar =
+            document.getElementById(
+                "sidebar"
+            );
+
+
+        const sidebarOverlay =
+            document.getElementById(
+                "sidebarOverlay"
+            );
+
+
+        function openSidebar() {
+
+            sidebar.classList.add(
+                "open"
+            );
+
+            sidebarOverlay.classList.add(
+                "show"
+            );
+
+            document.body.classList.add(
+                "sidebar-open"
+            );
+
+        }
+
+
+        function closeSidebar() {
+
+            sidebar.classList.remove(
+                "open"
+            );
+
+            sidebarOverlay.classList.remove(
+                "show"
+            );
+
+            document.body.classList.remove(
+                "sidebar-open"
+            );
+
+        }
+
+
+        mobileMenuButton.addEventListener(
+            "click",
+            openSidebar
+        );
+
+
+        sidebarOverlay.addEventListener(
+            "click",
+            closeSidebar
+        );
+
+
+        /* ==========================================
+           ESCAPE KEY
+           ========================================== */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (event.key === "Escape") {
+
+                    close2FA();
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

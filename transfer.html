@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MyBank - Transfer Money</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- =====================================================
+         SIDEBAR OVERLAY
+         ===================================================== -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay">
+    </div>
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar">
+
+        <div class="sidebar-logo">
+
+            <div class="sidebar-logo-icon">
+                🏦
+            </div>
+
+            <div>
+                <h2>MyBank</h2>
+                <span>Online Banking</span>
+            </div>
+
+        </div>
+
+
+        <nav class="main-navigation">
+
+            <p class="nav-heading">
+                MAIN MENU
+            </p>
+
+
+            <a
+                href="dashboard.html"
+                class="nav-link">
+
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a
+                href="accounts.html"
+                class="nav-link">
+
+                <span class="nav-icon">💳</span>
+                <span>My Accounts</span>
+
+            </a>
+
+
+            <a
+                href="transfer.html"
+                class="nav-link active">
+
+                <span class="nav-icon">↗</span>
+                <span>Transfer Money</span>
+
+            </a>
+
+
+            <a
+                href="transactions.html"
+                class="nav-link">
+
+                <span class="nav-icon">↕</span>
+                <span>Transactions</span>
+
+            </a>
+
+
+            <p class="nav-heading nav-heading-space">
+                PERSONAL
+            </p>
+
+
+            <a
+                href="profile.html"
+                class="nav-link">
+
+                <span class="nav-icon">👤</span>
+                <span>My Profile</span>
+
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-link"
+                id="settingsLink">
+
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="security-badge">
+
+                <span class="security-badge-icon">
+                    🔒
+                </span>
+
+                <div>
+                    <strong>Secure Banking</strong>
+                    <small>Protected session</small>
+                </div>
+
+            </div>
+
+
+            <button
+                class="logout-button"
+                onclick="logout()">
+
+                <span>↪</span>
+                <span>Logout</span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =================================================
+             TOP BAR
+             ================================================= -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                    aria-label="Open navigation">
+
+                    ☰
+
+                </button>
+
+
+                <div class="page-title">
+
+                    <span>Payments</span>
+
+                    <h1>Transfer Money</h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <button
+                    class="icon-button"
+                    id="notificationButton"
+                    aria-label="Notifications">
+
+                    🔔
+
+                    <span class="notification-dot">
+                    </span>
+
+                </button>
+
+
+                <div class="user-menu">
+
+                    <div class="user-avatar">
+                        AJ
+                    </div>
+
+                    <div class="user-details">
+
+                        <strong id="topUserName">
+                            Alex Johnson
+                        </strong>
+
+                        <span>
+                            Personal Account
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             CONTENT
+             ================================================= -->
+
+        <div class="dashboard-content">
+
+
+            <!-- =================================================
+                 INTRO
+                 ================================================= -->
+
+            <section class="welcome-section">
+
+                <div>
+
+                    <p class="welcome-small">
+                        Payments
+                    </p>
+
+                    <h2>
+                        Send Money
+                    </h2>
+
+                    <p>
+                        Transfer money securely to another account.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 TRANSFER LAYOUT
+                 ================================================= -->
+
+            <div class="transfer-layout">
+
+
+                <!-- =================================================
+                     TRANSFER FORM
+                     ================================================= -->
+
+                <section class="transfer-card">
+
+                    <div class="transfer-card-header">
+
+                        <div>
+
+                            <h2>
+                                New Transfer
+                            </h2>
+
+                            <p>
+                                Enter the recipient and payment details.
+                            </p>
+
+                        </div>
+
+                        <div class="transfer-secure">
+                            🔒 Secure
+                        </div>
+
+                    </div>
+
+
+                    <!-- =============================================
+                         STEP INDICATOR
+                         ============================================= -->
+
+                    <div class="transfer-steps">
+
+                        <div class="transfer-step active">
+
+                            <span>1</span>
+
+                            <p>
+                                Details
+                            </p>
+
+                        </div>
+
+
+                        <div class="step-line"></div>
+
+
+                        <div class="transfer-step">
+
+                            <span>2</span>
+
+                            <p>
+                                Confirm
+                            </p>
+
+                        </div>
+
+
+                        <div class="step-line"></div>
+
+
+                        <div class="transfer-step">
+
+                            <span>3</span>
+
+                            <p>
+                                Complete
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =============================================
+                         FORM
+                         ============================================= -->
+
+                    <form id="transferForm">
+
+
+                        <!-- FROM ACCOUNT -->
+
+                        <div class="transfer-form-section">
+
+                            <h3>
+                                From Account
+                            </h3>
+
+                            <p class="form-help">
+                                Select the account you want to send money from.
+                            </p>
+
+
+                            <div class="account-select-card selected">
+
+                                <div class="account-select-left">
+
+                                    <div class="account-icon savings-icon">
+                                        $
+                                    </div>
+
+                                    <div>
+
+                                        <strong>
+                                            Savings Account
+                                        </strong>
+
+                                        <span>
+                                            **** **** 4589
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="account-select-balance">
+
+                                    <span>
+                                        Available
+                                    </span>
+
+                                    <strong>
+                                        ₹18,500
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- RECIPIENT -->
+
+                        <div class="transfer-form-section">
+
+                            <h3>
+                                Recipient Details
+                            </h3>
+
+                            <p class="form-help">
+                                Enter the details of the person receiving the money.
+                            </p>
+
+
+                            <div class="form-grid">
+
+
+                                <div class="form-group">
+
+                                    <label for="recipientName">
+                                        Recipient Name
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="recipientName"
+                                        placeholder="Enter full name"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="recipientAccount">
+                                        Account Number
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="recipientAccount"
+                                        placeholder="Enter account number"
+                                        inputmode="numeric"
+                                        maxlength="16"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="confirmAccount">
+                                        Confirm Account Number
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="confirmAccount"
+                                        placeholder="Re-enter account number"
+                                        inputmode="numeric"
+                                        maxlength="16"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="ifsc">
+                                        IFSC Code
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="ifsc"
+                                        placeholder="Example: MYBK0001234"
+                                        maxlength="11"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- AMOUNT -->
+
+                        <div class="transfer-form-section">
+
+                            <h3>
+                                Transfer Amount
+                            </h3>
+
+                            <p class="form-help">
+                                Enter the amount you want to transfer.
+                            </p>
+
+
+                            <div class="amount-input-wrapper">
+
+                                <span>
+                                    ₹
+                                </span>
+
+                                <input
+                                    type="number"
+                                    id="transferAmount"
+                                    placeholder="0.00"
+                                    min="1"
+                                    max="50000"
+                                    step="0.01"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="amount-limit">
+
+                                <span>
+                                    Available balance
+                                </span>
+
+                                <strong>
+                                    ₹18,500.00
+                                </strong>
+
+                            </div>
+
+
+                            <div class="amount-limit">
+
+                                <span>
+                                    Daily transfer limit
+                                </span>
+
+                                <strong>
+                                    ₹50,000.00
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- DESCRIPTION -->
+
+                        <div class="transfer-form-section">
+
+                            <h3>
+                                Transfer Note
+                                <span class="optional">
+                                    Optional
+                                </span>
+                            </h3>
+
+                            <textarea
+                                id="transferNote"
+                                rows="3"
+                                maxlength="100"
+                                placeholder="Add a note for this transfer">
+                            </textarea>
+
+                        </div>
+
+
+                        <!-- ERROR -->
+
+                        <div
+                            class="transfer-message"
+                            id="transferMessage">
+                        </div>
+
+
+                        <!-- BUTTON -->
+
+                        <button
+                            type="submit"
+                            class="transfer-submit-button"
+                            id="transferSubmit">
+
+                            Continue to Review
+                            <span>→</span>
+
+                        </button>
+
+                    </form>
+
+                </section>
+
+
+                <!-- =================================================
+                     SIDE INFORMATION
+                     ================================================= -->
+
+                <aside class="transfer-sidebar">
+
+
+                    <!-- SECURITY -->
+
+                    <div class="transfer-info-card">
+
+                        <div class="info-card-icon blue">
+                            🔒
+                        </div>
+
+                        <h3>
+                            Secure Transfer
+                        </h3>
+
+                        <p>
+                            Always verify the recipient's account
+                            details before sending money.
+                        </p>
+
+                    </div>
+
+
+                    <!-- LIMITS -->
+
+                    <div class="transfer-info-card">
+
+                        <div class="info-card-icon green">
+                            ₹
+                        </div>
+
+                        <h3>
+                            Transfer Limits
+                        </h3>
+
+
+                        <div class="limit-row">
+
+                            <span>
+                                Per transaction
+                            </span>
+
+                            <strong>
+                                ₹50,000
+                            </strong>
+
+                        </div>
+
+
+                        <div class="limit-row">
+
+                            <span>
+                                Daily limit
+                            </span>
+
+                            <strong>
+                                ₹50,000
+                            </strong>
+
+                        </div>
+
+
+                        <div class="limit-row">
+
+                            <span>
+                                Available today
+                            </span>
+
+                            <strong class="green-text">
+                                ₹50,000
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TIPS -->
+
+                    <div class="transfer-info-card tips-card">
+
+                        <div class="info-card-icon orange">
+                            💡
+                        </div>
+
+                        <h3>
+                            Transfer Tips
+                        </h3>
+
+                        <ul>
+
+                            <li>
+                                Double-check the account number.
+                            </li>
+
+                            <li>
+                                Confirm the recipient's name.
+                            </li>
+
+                            <li>
+                                Never share your password or PIN.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+
+            <!-- =================================================
+                 CONFIRMATION MODAL
+                 ================================================= -->
+
+            <div
+                class="modal-overlay"
+                id="confirmationModal">
+
+                <div class="confirmation-modal">
+
+                    <button
+                        class="modal-close"
+                        id="closeModal"
+                        aria-label="Close">
+
+                        ×
+
+                    </button>
+
+
+                    <div class="confirmation-icon">
+                        ✓
+                    </div>
+
+
+                    <h2>
+                        Review Transfer
+                    </h2>
+
+                    <p>
+                        Please verify the details before continuing.
+                    </p>
+
+
+                    <div class="confirmation-details">
+
+                        <div>
+                            <span>
+                                Recipient
+                            </span>
+
+                            <strong id="confirmRecipient">
+                                —
+                            </strong>
+                        </div>
+
+
+                        <div>
+                            <span>
+                                Account
+                            </span>
+
+                            <strong id="confirmAccountNumber">
+                                —
+                            </strong>
+                        </div>
+
+
+                        <div>
+                            <span>
+                                Amount
+                            </span>
+
+                            <strong id="confirmAmount">
+                                ₹0
+                            </strong>
+                        </div>
+
+
+                        <div>
+                            <span>
+                                Transfer fee
+                            </span>
+
+                            <strong>
+                                ₹0
+                            </strong>
+                        </div>
+
+
+                        <div class="confirmation-total">
+
+                            <span>
+                                Total
+                            </span>
+
+                            <strong id="confirmTotal">
+                                ₹0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="confirmation-warning">
+
+                        <span>
+                            ⚠️
+                        </span>
+
+                        <p>
+                            This is a demo transfer. No real money
+                            will be transferred.
+                        </p>
+
+                    </div>
+
+
+                    <div class="modal-actions">
+
+                        <button
+                            class="btn btn-secondary"
+                            id="cancelTransfer">
+
+                            Go Back
+
+                        </button>
+
+
+                        <button
+                            class="btn btn-primary"
+                            id="confirmTransfer">
+
+                            Confirm Transfer
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SUCCESS MODAL
+                 ================================================= -->
+
+            <div
+                class="modal-overlay"
+                id="successModal">
+
+                <div class="confirmation-modal success-modal">
+
+                    <div class="success-icon">
+                        ✓
+                    </div>
+
+                    <h2>
+                        Transfer Successful
+                    </h2>
+
+                    <p>
+                        Your demo transfer has been completed.
+                    </p>
+
+
+                    <div class="success-reference">
+
+                        <span>
+                            Reference Number
+                        </span>
+
+                        <strong id="referenceNumber">
+                            MBK-000000
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="btn btn-primary success-button"
+                        id="doneButton">
+
+                        Done
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
+        <footer class="dashboard-footer">
+
+            <span>
+                © 2026 MyBank
+            </span>
+
+            <div>
+
+                <a href="#">
+                    Privacy
+                </a>
+
+                <a href="#">
+                    Security
+                </a>
+
+                <a href="#">
+                    Help
+                </a>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+
+    <!-- =====================================================
+         AUTH
+         ===================================================== -->
+
+    <script src="auth.js"></script>
+
+
+    <!-- =====================================================
+         TRANSFER JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+
+        /* ==========================================
+           PAGE PROTECTION
+           ========================================== */
+
+        protectPage();
+
+
+        /* ==========================================
+           USER
+           ========================================== */
+
+        const session = getSession();
+
+        if (session) {
+
+            document.getElementById(
+                "topUserName"
+            ).textContent = session.name;
+
+        }
+
+
+        /* ==========================================
+           ELEMENTS
+           ========================================== */
+
+        const transferForm =
+            document.getElementById(
+                "transferForm"
+            );
+
+        const transferMessage =
+            document.getElementById(
+                "transferMessage"
+            );
+
+        const confirmationModal =
+            document.getElementById(
+                "confirmationModal"
+            );
+
+        const successModal =
+            document.getElementById(
+                "successModal"
+            );
+
+
+        /* ==========================================
+           SHOW ERROR
+           ========================================== */
+
+        function showTransferError(message) {
+
+            transferMessage.textContent =
+                message;
+
+            transferMessage.className =
+                "transfer-message error";
+
+        }
+
+
+        /* ==========================================
+           CLEAR ERROR
+           ========================================== */
+
+        function clearTransferError() {
+
+            transferMessage.textContent = "";
+
+            transferMessage.className =
+                "transfer-message";
+
+        }
+
+
+        /* ==========================================
+           OPEN CONFIRMATION
+           ========================================== */
+
+        transferForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+                clearTransferError();
+
+
+                const name =
+                    document.getElementById(
+                        "recipientName"
+                    ).value.trim();
+
+
+                const account =
+                    document.getElementById(
+                        "recipientAccount"
+                    ).value.trim();
+
+
+                const confirmAccount =
+                    document.getElementById(
+                        "confirmAccount"
+                    ).value.trim();
+
+
+                const ifsc =
+                    document.getElementById(
+                        "ifsc"
+                    ).value.trim();
+
+
+                const amount =
+                    Number(
+                        document.getElementById(
+                            "transferAmount"
+                        ).value
+                    );
+
+
+                /* Validate recipient */
+
+                if (name.length < 2) {
+
+                    showTransferError(
+                        "Please enter a valid recipient name."
+                    );
+
+                    return;
+
+                }
+
+
+                /* Validate account */
+
+                if (
+                    !/^[0-9]{9,16}$/.test(account)
+                ) {
+
+                    showTransferError(
+                        "Please enter a valid account number."
+                    );
+
+                    return;
+
+                }
+
+
+                /* Confirm account */
+
+                if (
+                    account !== confirmAccount
+                ) {
+
+                    showTransferError(
+                        "Account numbers do not match."
+                    );
+
+                    return;
+
+                }
+
+
+                /* Validate IFSC */
+
+                if (
+                    !/^[A-Za-z0-9]{6,11}$/.test(ifsc)
+                ) {
+
+                    showTransferError(
+                        "Please enter a valid IFSC code."
+                    );
+
+                    return;
+
+                }
+
+
+                /* Validate amount */
+
+                if (
+                    !Number.isFinite(amount) ||
+                    amount <= 0
+                ) {
+
+                    showTransferError(
+                        "Please enter a valid transfer amount."
+                    );
+
+                    return;
+
+                }
+
+
+                /* Transfer limit */
+
+                if (amount > 50000) {
+
+                    showTransferError(
+                        "The maximum demo transfer amount is ₹50,000."
+                    );
+
+                    return;
+
+                }
+
+
+                /* Available balance */
+
+                if (amount > 18500) {
+
+                    showTransferError(
+                        "Insufficient available balance."
+                    );
+
+                    return;
+
+                }
+
+
+                /* Fill confirmation */
+
+                document.getElementById(
+                    "confirmRecipient"
+                ).textContent = name;
+
+
+                /*
+                 * Keep most account digits hidden
+                 * in the confirmation screen.
+                 */
+
+                document.getElementById(
+                    "confirmAccountNumber"
+                ).textContent =
+                    "•••• •••• " +
+                    account.slice(-4);
+
+
+                const formattedAmount =
+                    amount.toLocaleString(
+                        "en-IN",
+                        {
+                            minimumFractionDigits: 2
+                        }
+                    );
+
+
+                document.getElementById(
+                    "confirmAmount"
+                ).textContent =
+                    "₹" + formattedAmount;
+
+
+                document.getElementById(
+                    "confirmTotal"
+                ).textContent =
+                    "₹" + formattedAmount;
+
+
+                confirmationModal.classList.add(
+                    "show"
+                );
+
+                document.body.classList.add(
+                    "modal-open"
+                );
+
+            }
+        );
+
+
+        /* ==========================================
+           CLOSE CONFIRMATION
+           ========================================== */
+
+        function closeConfirmation() {
+
+            confirmationModal.classList.remove(
+                "show"
+            );
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+
+        }
+
+
+        document
+            .getElementById("closeModal")
+            .addEventListener(
+                "click",
+                closeConfirmation
+            );
+
+
+        document
+            .getElementById("cancelTransfer")
+            .addEventListener(
+                "click",
+                closeConfirmation
+            );
+
+
+        /* ==========================================
+           CONFIRM TRANSFER
+           ========================================== */
+
+        document
+            .getElementById("confirmTransfer")
+            .addEventListener(
+                "click",
+                function () {
+
+                    closeConfirmation();
+
+
+                    /*
+                     * Generate a demo reference.
+                     */
+
+                    const reference =
+                        "MBK-" +
+                        Math.floor(
+                            100000 +
+                            Math.random() * 900000
+                        );
+
+
+                    document.getElementById(
+                        "referenceNumber"
+                    ).textContent =
+                        reference;
+
+
+                    setTimeout(
+                        function () {
+
+                            successModal.classList.add(
+                                "show"
+                            );
+
+                            document.body.classList.add(
+                                "modal-open"
+                            );
+
+                        },
+                        250
+                    );
+
+                }
+            );
+
+
+        /* ==========================================
+           DONE
+           ========================================== */
+
+        document
+            .getElementById("doneButton")
+            .addEventListener(
+                "click",
+                function () {
+
+                    successModal.classList.remove(
+                        "show"
+                    );
+
+                    document.body.classList.remove(
+                        "modal-open"
+                    );
+
+                    transferForm.reset();
+
+                }
+            );
+
+
+        /* ==========================================
+           MOBILE SIDEBAR
+           ========================================== */
+
+        const mobileMenuButton =
+            document.getElementById(
+                "mobileMenuButton"
+            );
+
+        const sidebar =
+            document.getElementById(
+                "sidebar"
+            );
+
+        const sidebarOverlay =
+            document.getElementById(
+                "sidebarOverlay"
+            );
+
+
+        function openSidebar() {
+
+            sidebar.classList.add("open");
+
+            sidebarOverlay.classList.add(
+                "show"
+            );
+
+            document.body.classList.add(
+                "sidebar-open"
+            );
+
+        }
+
+
+        function closeSidebar() {
+
+            sidebar.classList.remove(
+                "open"
+            );
+
+            sidebarOverlay.classList.remove(
+                "show"
+            );
+
+            document.body.classList.remove(
+                "sidebar-open"
+            );
+
+        }
+
+
+        mobileMenuButton.addEventListener(
+            "click",
+            openSidebar
+        );
+
+
+        sidebarOverlay.addEventListener(
+            "click",
+            closeSidebar
+        );
+
+
+        /* ==========================================
+           SETTINGS
+           ========================================== */
+
+        document
+            .getElementById("settingsLink")
+            .addEventListener(
+                "click",
+                function (event) {
+
+                    event.preventDefault();
+
+                    alert(
+                        "Settings page will be added soon."
+                    );
+
+                }
+            );
+
+
+        /* ==========================================
+           NOTIFICATIONS
+           ========================================== */
+
+        document
+            .getElementById(
+                "notificationButton"
+            )
+            .addEventListener(
+                "click",
+                function () {
+
+                    alert(
+                        "You have 2 new notifications."
+                    );
+
+                }
+            );
+
+    </script>
+
+</body>
+
+</html>

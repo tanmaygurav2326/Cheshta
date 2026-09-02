@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MyBank - Transactions</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- =====================================================
+         SIDEBAR OVERLAY
+         ===================================================== -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay">
+    </div>
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar">
+
+        <!-- Logo -->
+
+        <div class="sidebar-logo">
+
+            <div class="sidebar-logo-icon">
+                🏦
+            </div>
+
+            <div>
+                <h2>MyBank</h2>
+                <span>Online Banking</span>
+            </div>
+
+        </div>
+
+
+        <!-- Navigation -->
+
+        <nav class="main-navigation">
+
+            <p class="nav-heading">
+                MAIN MENU
+            </p>
+
+
+            <a
+                href="dashboard.html"
+                class="nav-link">
+
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a
+                href="accounts.html"
+                class="nav-link">
+
+                <span class="nav-icon">💳</span>
+                <span>My Accounts</span>
+
+            </a>
+
+
+            <a
+                href="transfer.html"
+                class="nav-link">
+
+                <span class="nav-icon">↗</span>
+                <span>Transfer Money</span>
+
+            </a>
+
+
+            <a
+                href="transactions.html"
+                class="nav-link active">
+
+                <span class="nav-icon">↕</span>
+                <span>Transactions</span>
+
+            </a>
+
+
+            <p class="nav-heading nav-heading-space">
+                PERSONAL
+            </p>
+
+
+            <a
+                href="profile.html"
+                class="nav-link">
+
+                <span class="nav-icon">👤</span>
+                <span>My Profile</span>
+
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-link"
+                id="settingsLink">
+
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+
+            </a>
+
+        </nav>
+
+
+        <!-- Sidebar bottom -->
+
+        <div class="sidebar-bottom">
+
+            <div class="security-badge">
+
+                <span class="security-badge-icon">
+                    🔒
+                </span>
+
+                <div>
+                    <strong>
+                        Secure Banking
+                    </strong>
+
+                    <small>
+                        Protected session
+                    </small>
+                </div>
+
+            </div>
+
+
+            <button
+                class="logout-button"
+                onclick="logout()">
+
+                <span>↪</span>
+                <span>Logout</span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =================================================
+             TOP BAR
+             ================================================= -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                    aria-label="Open navigation">
+
+                    ☰
+
+                </button>
+
+
+                <div class="page-title">
+
+                    <span>Activity</span>
+
+                    <h1>Transactions</h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <button
+                    class="icon-button"
+                    id="notificationButton"
+                    aria-label="Notifications">
+
+                    🔔
+
+                    <span class="notification-dot">
+                    </span>
+
+                </button>
+
+
+                <div class="user-menu">
+
+                    <div class="user-avatar">
+                        AJ
+                    </div>
+
+                    <div class="user-details">
+
+                        <strong id="topUserName">
+                            Alex Johnson
+                        </strong>
+
+                        <span>
+                            Personal Account
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             CONTENT
+             ================================================= -->
+
+        <div class="dashboard-content">
+
+
+            <!-- =================================================
+                 INTRO
+                 ================================================= -->
+
+            <section class="welcome-section">
+
+                <div>
+
+                    <p class="welcome-small">
+                        Account activity
+                    </p>
+
+                    <h2>
+                        Transaction History
+                    </h2>
+
+                    <p>
+                        Review your recent payments and deposits.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="btn btn-secondary"
+                    id="downloadButton">
+
+                    ↓ Download
+
+                </button>
+
+            </section>
+
+
+            <!-- =================================================
+                 SUMMARY CARDS
+                 ================================================= -->
+
+            <section class="transaction-summary-grid">
+
+
+                <div class="transaction-summary-card">
+
+                    <div class="summary-icon green">
+                        ↓
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Money received
+                        </span>
+
+                        <strong class="summary-credit">
+                            +₹50,000
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="transaction-summary-card">
+
+                    <div class="summary-icon red">
+                        ↑
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Money spent
+                        </span>
+
+                        <strong class="summary-debit">
+                            -₹6,700
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="transaction-summary-card">
+
+                    <div class="summary-icon blue">
+                        ↕
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Transactions
+                        </span>
+
+                        <strong>
+                            12
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="transaction-summary-card">
+
+                    <div class="summary-icon purple">
+                        ₹
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Current balance
+                        </span>
+
+                        <strong>
+                            ₹25,000
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 TRANSACTION PANEL
+                 ================================================= -->
+
+            <section class="transactions-page-card">
+
+
+                <!-- Header -->
+
+                <div class="transactions-page-header">
+
+                    <div>
+
+                        <h2>
+                            All Transactions
+                        </h2>
+
+                        <p>
+                            Showing your account activity
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     FILTERS
+                     ================================================= -->
+
+                <div class="transaction-filters">
+
+
+                    <!-- Search -->
+
+                    <div class="transaction-search">
+
+                        <span>
+                            🔍
+                        </span>
+
+                        <input
+                            type="search"
+                            id="searchTransactions"
+                            placeholder="Search transactions..."
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+                    <!-- Account filter -->
+
+                    <select
+                        id="accountFilter"
+                        class="transaction-filter">
+
+                        <option value="all">
+                            All Accounts
+                        </option>
+
+                        <option value="savings">
+                            Savings Account
+                        </option>
+
+                        <option value="current">
+                            Current Account
+                        </option>
+
+                    </select>
+
+
+                    <!-- Type filter -->
+
+                    <select
+                        id="typeFilter"
+                        class="transaction-filter">
+
+                        <option value="all">
+                            All Types
+                        </option>
+
+                        <option value="credit">
+                            Money In
+                        </option>
+
+                        <option value="debit">
+                            Money Out
+                        </option>
+
+                    </select>
+
+
+                    <!-- Date filter -->
+
+                    <select
+                        id="dateFilter"
+                        class="transaction-filter">
+
+                        <option value="all">
+                            All Time
+                        </option>
+
+                        <option value="today">
+                            Today
+                        </option>
+
+                        <option value="week">
+                            Last 7 Days
+                        </option>
+
+                        <option value="month">
+                            This Month
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- =================================================
+                     TABLE
+                     ================================================= -->
+
+                <div class="transactions-table-wrapper">
+
+                    <table class="transactions-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Transaction
+                                </th>
+
+                                <th>
+                                    Account
+                                </th>
+
+                                <th>
+                                    Date
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Amount
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="transactionsList">
+
+
+                            <!-- Transaction 1 -->
+
+                            <tr
+                                class="transaction-row"
+                                data-name="Salary"
+                                data-account="savings"
+                                data-type="credit"
+                                data-date="2026-09-02"
+                                data-amount="50000">
+
+                                <td>
+
+                                    <div class="table-transaction">
+
+                                        <div class="transaction-icon salary">
+                                            ↓
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                Salary
+                                            </strong>
+
+                                            <span>
+                                                Monthly salary
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+                                    <span class="masked-table-account">
+                                        **** 4589
+                                    </span>
+                                </td>
+
+
+                                <td>
+                                    02 Sep 2026
+                                </td>
+
+
+                                <td>
+
+                                    <span class="status completed">
+                                        Completed
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <strong class="amount-credit">
+                                        +₹50,000
+                                    </strong>
+
+                                </td>
+
+
+                                <td>
+
+                                    <button
+                                        class="transaction-view"
+                                        data-transaction="Salary">
+
+                                        View
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- Transaction 2 -->
+
+                            <tr
+                                class="transaction-row"
+                                data-name="Electricity Bill"
+                                data-account="current"
+                                data-type="debit"
+                                data-date="2026-09-01"
+                                data-amount="-2500">
+
+                                <td>
+
+                                    <div class="table-transaction">
+
+                                        <div class="transaction-icon bill">
+                                            ⚡
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                Electricity Bill
+                                            </strong>
+
+                                            <span>
+                                                Utility payment
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+                                    <span class="masked-table-account">
+                                        **** 7921
+                                    </span>
+                                </td>
+
+
+                                <td>
+                                    01 Sep 2026
+                                </td>
+
+
+                                <td>
+
+                                    <span class="status completed">
+                                        Completed
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <strong class="amount-debit">
+                                        -₹2,500
+                                    </strong>
+
+                                </td>
+
+
+                                <td>
+
+                                    <button
+                                        class="transaction-view"
+                                        data-transaction="Electricity Bill">
+
+                                        View
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- Transaction 3 -->
+
+                            <tr
+                                class="transaction-row"
+                                data-name="Online Shopping"
+                                data-account="current"
+                                data-type="debit"
+                                data-date="2026-08-30"
+                                data-amount="-1200">
+
+                                <td>
+
+                                    <div class="table-transaction">
+
+                                        <div class="transaction-icon shopping">
+                                            🛍
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                Online Shopping
+                                            </strong>
+
+                                            <span>
+                                                Card payment
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+                                    <span class="masked-table-account">
+                                        **** 7921
+                                    </span>
+                                </td>
+
+
+                                <td>
+                                    30 Aug 2026
+                                </td>
+
+
+                                <td>
+
+                                    <span class="status completed">
+                                        Completed
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <strong class="amount-debit">
+                                        -₹1,200
+                                    </strong>
+
+                                </td>
+
+
+                                <td>
+
+                                    <button
+                                        class="transaction-view"
+                                        data-transaction="Online Shopping">
+
+                                        View
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- Transaction 4 -->
+
+                            <tr
+                                class="transaction-row"
+                                data-name="Transfer to Rahul"
+                                data-account="savings"
+                                data-type="debit"
+                                data-date="2026-08-28"
+                                data-amount="-3000">
+
+                                <td>
+
+                                    <div class="table-transaction">
+
+                                        <div class="transaction-icon transfer">
+                                            ↗
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                Transfer to Rahul
+                                            </strong>
+
+                                            <span>
+                                                Bank transfer
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+                                    <span class="masked-table-account">
+                                        **** 4589
+                                    </span>
+                                </td>
+
+
+                                <td>
+                                    28 Aug 2026
+                                </td>
+
+
+                                <td>
+
+                                    <span class="status completed">
+                                        Completed
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <strong class="amount-debit">
+                                        -₹3,000
+                                    </strong>
+
+                                </td>
+
+
+                                <td>
+
+                                    <button
+                                        class="transaction-view"
+                                        data-transaction="Transfer to Rahul">
+
+                                        View
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- Transaction 5 -->
+
+                            <tr
+                                class="transaction-row"
+                                data-name="Cash Deposit"
+                                data-account="savings"
+                                data-type="credit"
+                                data-date="2026-08-25"
+                                data-amount="10000">
+
+                                <td>
+
+                                    <div class="table-transaction">
+
+                                        <div class="transaction-icon deposit">
+                                            +
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                Cash Deposit
+                                            </strong>
+
+                                            <span>
+                                                Branch deposit
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+                                    <span class="masked-table-account">
+                                        **** 4589
+                                    </span>
+                                </td>
+
+
+                                <td>
+                                    25 Aug 2026
+                                </td>
+
+
+                                <td>
+
+                                    <span class="status completed">
+                                        Completed
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <strong class="amount-credit">
+                                        +₹10,000
+                                    </strong>
+
+                                </td>
+
+
+                                <td>
+
+                                    <button
+                                        class="transaction-view"
+                                        data-transaction="Cash Deposit">
+
+                                        View
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- No results -->
+
+                            <tr
+                                id="noTransactions"
+                                class="no-transactions">
+
+                                <td colspan="6">
+
+                                    <div>
+
+                                        <span>
+                                            🔎
+                                        </span>
+
+                                        <strong>
+                                            No transactions found
+                                        </strong>
+
+                                        <p>
+                                            Try changing your search or filters.
+                                        </p>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- =================================================
+                     PAGINATION
+                     ================================================= -->
+
+                <div class="transaction-pagination">
+
+                    <span id="transactionCount">
+                        Showing 5 transactions
+                    </span>
+
+
+                    <div class="pagination-buttons">
+
+                        <button
+                            class="pagination-button disabled"
+                            disabled>
+
+                            ← Previous
+
+                        </button>
+
+                        <button
+                            class="pagination-button active">
+
+                            1
+
+                        </button>
+
+                        <button
+                            class="pagination-button">
+
+                            2
+
+                        </button>
+
+                        <button
+                            class="pagination-button">
+
+                            3
+
+                        </button>
+
+                        <button
+                            class="pagination-button">
+
+                            Next →
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 DATA PROTECTION
+                 ================================================= -->
+
+            <div class="data-protection-note">
+
+                <span>
+                    🛡️
+                </span>
+
+                <p>
+                    Account numbers are masked to protect your
+                    financial information.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             TRANSACTION DETAILS MODAL
+             ================================================= -->
+
+        <div
+            class="modal-overlay"
+            id="transactionModal">
+
+            <div class="transaction-details-modal">
+
+                <button
+                    class="modal-close"
+                    id="closeTransactionModal">
+
+                    ×
+
+                </button>
+
+
+                <div class="transaction-modal-icon">
+                    ↕
+                </div>
+
+
+                <h2 id="modalTransactionName">
+                    Transaction Details
+                </h2>
+
+
+                <p class="modal-subtitle">
+                    Transaction information
+                </p>
+
+
+                <div class="transaction-detail-list">
+
+
+                    <div class="detail-row">
+
+                        <span>
+                            Status
+                        </span>
+
+                        <strong class="status completed">
+                            Completed
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-row">
+
+                        <span>
+                            Amount
+                        </span>
+
+                        <strong id="modalAmount">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-row">
+
+                        <span>
+                            Account
+                        </span>
+
+                        <strong>
+                            **** **** 4589
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-row">
+
+                        <span>
+                            Date
+                        </span>
+
+                        <strong>
+                            02 Sep 2026
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-row">
+
+                        <span>
+                            Reference
+                        </span>
+
+                        <strong id="modalReference">
+                            MBK-000000
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="modal-security-message">
+
+                    🔒 Sensitive account details are hidden.
+
+                </div>
+
+
+                <button
+                    class="btn btn-primary modal-done-button"
+                    id="transactionModalDone">
+
+                    Done
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         AUTHENTICATION
+         ===================================================== -->
+
+    <script src="auth.js"></script>
+
+
+    <!-- =====================================================
+         PAGE JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+
+        /* ==========================================
+           PROTECT PAGE
+           ========================================== */
+
+        protectPage();
+
+
+        /* ==========================================
+           USER SESSION
+           ========================================== */
+
+        const session = getSession();
+
+        if (session) {
+
+            document.getElementById(
+                "topUserName"
+            ).textContent = session.name;
+
+        }
+
+
+        /* ==========================================
+           ELEMENTS
+           ========================================== */
+
+        const searchInput =
+            document.getElementById(
+                "searchTransactions"
+            );
+
+        const accountFilter =
+            document.getElementById(
+                "accountFilter"
+            );
+
+        const typeFilter =
+            document.getElementById(
+                "typeFilter"
+            );
+
+        const dateFilter =
+            document.getElementById(
+                "dateFilter"
+            );
+
+        const rows =
+            document.querySelectorAll(
+                ".transaction-row"
+            );
+
+        const noTransactions =
+            document.getElementById(
+                "noTransactions"
+            );
+
+        const transactionCount =
+            document.getElementById(
+                "transactionCount"
+            );
+
+
+        /* ==========================================
+           FILTER TRANSACTIONS
+           ========================================== */
+
+        function filterTransactions() {
+
+            const search =
+                searchInput.value
+                    .trim()
+                    .toLowerCase();
+
+
+            const selectedAccount =
+                accountFilter.value;
+
+
+            const selectedType =
+                typeFilter.value;
+
+
+            const selectedDate =
+                dateFilter.value;
+
+
+            let visibleCount = 0;
+
+
+            rows.forEach(function (row) {
+
+                const name =
+                    row.dataset.name
+                        .toLowerCase();
+
+
+                const account =
+                    row.dataset.account;
+
+
+                const type =
+                    row.dataset.type;
+
+
+                const transactionDate =
+                    new Date(
+                        row.dataset.date
+                    );
+
+
+                const today =
+                    new Date();
+
+
+                let matchesSearch =
+                    name.includes(search);
+
+
+                let matchesAccount =
+                    selectedAccount === "all" ||
+                    account === selectedAccount;
+
+
+                let matchesType =
+                    selectedType === "all" ||
+                    type === selectedType;
+
+
+                let matchesDate = true;
+
+
+                /* Date filter */
+
+                if (selectedDate !== "all") {
+
+                    const difference =
+                        today.getTime() -
+                        transactionDate.getTime();
+
+
+                    const days =
+                        difference /
+                        (1000 * 60 * 60 * 24);
+
+
+                    if (
+                        selectedDate === "today"
+                    ) {
+
+                        matchesDate =
+                            transactionDate.toDateString() ===
+                            today.toDateString();
+
+                    }
+
+
+                    if (
+                        selectedDate === "week"
+                    ) {
+
+                        matchesDate =
+                            days >= 0 &&
+                            days <= 7;
+
+                    }
+
+
+                    if (
+                        selectedDate === "month"
+                    ) {
+
+                        matchesDate =
+                            transactionDate.getMonth() ===
+                            today.getMonth() &&
+                            transactionDate.getFullYear() ===
+                            today.getFullYear();
+
+                    }
+
+                }
+
+
+                const visible =
+                    matchesSearch &&
+                    matchesAccount &&
+                    matchesType &&
+                    matchesDate;
+
+
+                if (visible) {
+
+                    row.style.display =
+                        "";
+
+                    visibleCount++;
+
+                } else {
+
+                    row.style.display =
+                        "none";
+
+                }
+
+            });
+
+
+            /* Show / hide empty message */
+
+            if (visibleCount === 0) {
+
+                noTransactions.style.display =
+                    "table-row";
+
+            } else {
+
+                noTransactions.style.display =
+                    "none";
+
+            }
+
+
+            transactionCount.textContent =
+                "Showing " +
+                visibleCount +
+                " transaction" +
+                (visibleCount === 1 ? "" : "s");
+
+        }
+
+
+        /* ==========================================
+           FILTER EVENTS
+           ========================================== */
+
+        searchInput.addEventListener(
+            "input",
+            filterTransactions
+        );
+
+
+        accountFilter.addEventListener(
+            "change",
+            filterTransactions
+        );
+
+
+        typeFilter.addEventListener(
+            "change",
+            filterTransactions
+        );
+
+
+        dateFilter.addEventListener(
+            "change",
+            filterTransactions
+        );
+
+
+        /* ==========================================
+           TRANSACTION MODAL
+           ========================================== */
+
+        const transactionModal =
+            document.getElementById(
+                "transactionModal"
+            );
+
+
+        const closeTransactionModal =
+            document.getElementById(
+                "closeTransactionModal"
+            );
+
+
+        const transactionModalDone =
+            document.getElementById(
+                "transactionModalDone"
+            );
+
+
+        const modalName =
+            document.getElementById(
+                "modalTransactionName"
+            );
+
+
+        const modalAmount =
+            document.getElementById(
+                "modalAmount"
+            );
+
+
+        const modalReference =
+            document.getElementById(
+                "modalReference"
+            );
+
+
+        const viewButtons =
+            document.querySelectorAll(
+                ".transaction-view"
+            );
+
+
+        viewButtons.forEach(function (button) {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    const transaction =
+                        button.dataset.transaction;
+
+
+                    const row =
+                        button.closest(
+                            ".transaction-row"
+                        );
+
+
+                    const amount =
+                        Number(
+                            row.dataset.amount
+                        );
+
+
+                    modalName.textContent =
+                        transaction;
+
+
+                    modalAmount.textContent =
+                        amount >= 0
+                            ? "+₹" +
+                              amount.toLocaleString("en-IN")
+                            : "-₹" +
+                              Math.abs(amount)
+                                .toLocaleString("en-IN");
+
+
+                    modalAmount.className =
+                        amount >= 0
+                            ? "amount-credit"
+                            : "amount-debit";
+
+
+                    modalReference.textContent =
+                        "MBK-" +
+                        Math.floor(
+                            100000 +
+                            Math.random() * 900000
+                        );
+
+
+                    transactionModal.classList.add(
+                        "show"
+                    );
+
+
+                    document.body.classList.add(
+                        "modal-open"
+                    );
+
+                }
+            );
+
+        });
+
+
+        function closeTransactionDetails() {
+
+            transactionModal.classList.remove(
+                "show"
+            );
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+
+        }
+
+
+        closeTransactionModal.addEventListener(
+            "click",
+            closeTransactionDetails
+        );
+
+
+        transactionModalDone.addEventListener(
+            "click",
+            closeTransactionDetails
+        );
+
+
+        /* Close modal when clicking outside */
+
+        transactionModal.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    event.target ===
+                    transactionModal
+                ) {
+
+                    closeTransactionDetails();
+
+                }
+
+            }
+        );
+
+
+        /* ==========================================
+           DOWNLOAD DEMO
+           ========================================== */
+
+        document
+            .getElementById("downloadButton")
+            .addEventListener(
+                "click",
+                function () {
+
+                    alert(
+                        "Demo: transaction statement download would start here."
+                    );
+
+                }
+            );
+
+
+        /* ==========================================
+           MOBILE SIDEBAR
+           ========================================== */
+
+        const mobileMenuButton =
+            document.getElementById(
+                "mobileMenuButton"
+            );
+
+        const sidebar =
+            document.getElementById(
+                "sidebar"
+            );
+
+        const sidebarOverlay =
+            document.getElementById(
+                "sidebarOverlay"
+            );
+
+
+        function openSidebar() {
+
+            sidebar.classList.add("open");
+
+            sidebarOverlay.classList.add(
+                "show"
+            );
+
+            document.body.classList.add(
+                "sidebar-open"
+            );
+
+        }
+
+
+        function closeSidebar() {
+
+            sidebar.classList.remove(
+                "open"
+            );
+
+            sidebarOverlay.classList.remove(
+                "show"
+            );
+
+            document.body.classList.remove(
+                "sidebar-open"
+            );
+
+        }
+
+
+        mobileMenuButton.addEventListener(
+            "click",
+            openSidebar
+        );
+
+
+        sidebarOverlay.addEventListener(
+            "click",
+            closeSidebar
+        );
+
+
+        /* ==========================================
+           SETTINGS
+           ========================================== */
+
+        document
+            .getElementById("settingsLink")
+            .addEventListener(
+                "click",
+                function (event) {
+
+                    event.preventDefault();
+
+                    alert(
+                        "Settings page will be added soon."
+                    );
+
+                }
+            );
+
+
+        /* ==========================================
+           NOTIFICATIONS
+           ========================================== */
+
+        document
+            .getElementById("notificationButton")
+            .addEventListener(
+                "click",
+                function () {
+
+                    alert(
+                        "You have 2 new notifications."
+                    );
+
+                }
+            );
+
+    </script>
+
+</body>
+
+</html>

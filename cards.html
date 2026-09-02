@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MyBank - Cards</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- =====================================================
+         SIDEBAR OVERLAY
+         ===================================================== -->
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-logo">
+
+            <div class="sidebar-logo-icon">
+                🏦
+            </div>
+
+            <div>
+                <h2>MyBank</h2>
+                <span>Online Banking</span>
+            </div>
+
+        </div>
+
+
+        <nav class="main-navigation">
+
+            <p class="nav-heading">
+                MAIN MENU
+            </p>
+
+
+            <a href="dashboard.html" class="nav-link">
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a href="accounts.html" class="nav-link">
+                <span class="nav-icon">💳</span>
+                <span>My Accounts</span>
+            </a>
+
+
+            <a href="cards.html" class="nav-link active">
+                <span class="nav-icon">💳</span>
+                <span>My Cards</span>
+            </a>
+
+
+            <a href="transfer.html" class="nav-link">
+                <span class="nav-icon">↗</span>
+                <span>Transfer Money</span>
+            </a>
+
+
+            <a href="transactions.html" class="nav-link">
+                <span class="nav-icon">↕</span>
+                <span>Transactions</span>
+            </a>
+
+
+            <p class="nav-heading nav-heading-space">
+                PERSONAL
+            </p>
+
+
+            <a href="profile.html" class="nav-link">
+                <span class="nav-icon">👤</span>
+                <span>My Profile</span>
+            </a>
+
+
+            <a href="settings.html" class="nav-link">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+
+            <a href="help.html" class="nav-link">
+                <span class="nav-icon">?</span>
+                <span>Help & Support</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="security-badge">
+
+                <span class="security-badge-icon">
+                    🔒
+                </span>
+
+                <div>
+                    <strong>Secure Banking</strong>
+                    <small>Protected session</small>
+                </div>
+
+            </div>
+
+
+            <button
+                class="logout-button"
+                onclick="logout()">
+
+                <span>↪</span>
+                <span>Logout</span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =================================================
+             TOPBAR
+             ================================================= -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    class="mobile-menu-button"
+                    id="mobileMenuButton">
+
+                    ☰
+
+                </button>
+
+
+                <div class="page-title">
+
+                    <span>Personal</span>
+
+                    <h1>My Cards</h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <button
+                    class="icon-button"
+                    id="notificationButton">
+
+                    🔔
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+                <div class="user-menu">
+
+                    <div class="user-avatar">
+                        AJ
+                    </div>
+
+                    <div class="user-details">
+
+                        <strong id="topUserName">
+                            Alex Johnson
+                        </strong>
+
+                        <span>
+                            Personal Account
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             CONTENT
+             ================================================= -->
+
+        <div class="dashboard-content">
+
+
+            <!-- =================================================
+                 INTRO
+                 ================================================= -->
+
+            <section class="welcome-section">
+
+                <div>
+
+                    <p class="welcome-small">
+                        Payments
+                    </p>
+
+                    <h2>
+                        Your Cards
+                    </h2>
+
+                    <p>
+                        Manage your cards and payment preferences securely.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="btn btn-primary"
+                    id="addCardButton">
+
+                    + Add Card
+
+                </button>
+
+            </section>
+
+
+            <!-- =================================================
+                 CARD DISPLAY
+                 ================================================= -->
+
+            <section class="cards-page-grid">
+
+
+                <!-- ===============================
+                     CARD
+                     =============================== -->
+
+                <div class="bank-card-wrapper">
+
+                    <div
+                        class="bank-card"
+                        id="bankCard">
+
+                        <div class="card-top">
+
+                            <div class="card-brand">
+                                MYBANK
+                            </div>
+
+                            <div class="card-type">
+                                DEBIT
+                            </div>
+
+                        </div>
+
+
+                        <div class="chip">
+
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+                        </div>
+
+
+                        <div class="card-number">
+
+                            <span>••••</span>
+                            <span>••••</span>
+                            <span>••••</span>
+                            <span id="cardLastFour">4821</span>
+
+                        </div>
+
+
+                        <div class="card-bottom">
+
+                            <div>
+
+                                <small>
+                                    CARD HOLDER
+                                </small>
+
+                                <strong id="cardHolder">
+                                    ALEX JOHNSON
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <small>
+                                    EXPIRES
+                                </small>
+
+                                <strong>
+                                    ••/••
+                                </strong>
+
+                            </div>
+
+
+                            <div class="contactless">
+                                ))))
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card-security-label">
+
+                        <span>
+                            🔒
+                        </span>
+
+                        <span>
+                            Card details are protected
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ===============================
+                     CARD INFO
+                     =============================== -->
+
+                <div class="card-info-panel">
+
+                    <div class="card-status-row">
+
+                        <div>
+
+                            <span class="status-label">
+                                Card status
+                            </span>
+
+                            <strong
+                                class="card-status active"
+                                id="cardStatus">
+
+                                ● Active
+
+                            </strong>
+
+                        </div>
+
+
+                        <button
+                            class="btn btn-danger-outline"
+                            id="freezeButton">
+
+                            ❄ Freeze Card
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="card-details-list">
+
+
+                        <div class="card-detail">
+
+                            <span>
+                                Card number
+                            </span>
+
+                            <strong>
+                                •••• •••• •••• 4821
+                            </strong>
+
+                        </div>
+
+
+                        <div class="card-detail">
+
+                            <span>
+                                Card type
+                            </span>
+
+                            <strong>
+                                Visa Debit
+                            </strong>
+
+                        </div>
+
+
+                        <div class="card-detail">
+
+                            <span>
+                                Linked account
+                            </span>
+
+                            <strong>
+                                Primary Savings •••• 1024
+                            </strong>
+
+                        </div>
+
+
+                        <div class="card-detail">
+
+                            <span>
+                                Daily spending limit
+                            </span>
+
+                            <strong>
+                                ₹50,000
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card-action-buttons">
+
+                        <button
+                            class="card-action"
+                            id="detailsButton">
+
+                            <span>👁</span>
+
+                            <div>
+                                <strong>Card Details</strong>
+                                <small>View protected details</small>
+                            </div>
+
+                            <span>→</span>
+
+                        </button>
+
+
+                        <button
+                            class="card-action"
+                            id="limitButton">
+
+                            <span>⚙</span>
+
+                            <div>
+                                <strong>Spending Limits</strong>
+                                <small>Manage card limits</small>
+                            </div>
+
+                            <span>→</span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 QUICK ACTIONS
+                 ================================================= -->
+
+            <section class="section-block">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="welcome-small">
+                            Manage
+                        </p>
+
+                        <h2>
+                            Card Controls
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card-controls-grid">
+
+
+                    <button
+                        class="control-card"
+                        id="onlinePayments">
+
+                        <div class="control-icon blue">
+                            🌐
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Online Payments
+                            </strong>
+
+                            <span>
+                                Enabled
+                            </span>
+
+                        </div>
+
+                        <div class="mini-toggle active">
+                            <span></span>
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        class="control-card"
+                        id="contactlessPayments">
+
+                        <div class="control-icon green">
+                            ))))
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Contactless
+                            </strong>
+
+                            <span>
+                                Enabled
+                            </span>
+
+                        </div>
+
+                        <div class="mini-toggle active">
+                            <span></span>
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        class="control-card"
+                        id="internationalPayments">
+
+                        <div class="control-icon purple">
+                            ✈
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                International
+                            </strong>
+
+                            <span>
+                                Disabled
+                            </span>
+
+                        </div>
+
+                        <div class="mini-toggle">
+                            <span></span>
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        class="control-card"
+                        id="cashWithdrawal">
+
+                        <div class="control-icon orange">
+                            🏧
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Cash Withdrawal
+                            </strong>
+
+                            <span>
+                                Enabled
+                            </span>
+
+                        </div>
+
+                        <div class="mini-toggle active">
+                            <span></span>
+                        </div>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SPENDING LIMITS
+                 ================================================= -->
+
+            <section class="limits-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="welcome-small">
+                            Spending
+                        </p>
+
+                        <h2>
+                            Today's Limits
+                        </h2>
+
+                    </div>
+
+                    <button
+                        class="btn btn-secondary"
+                        id="manageLimits">
+
+                        Manage Limits
+
+                    </button>
+
+                </div>
+
+
+                <div class="limits-grid">
+
+
+                    <div class="limit-card">
+
+                        <div class="limit-card-top">
+
+                            <div class="limit-icon blue">
+                                💳
+                            </div>
+
+                            <span>
+                                Card Spending
+                            </span>
+
+                        </div>
+
+
+                        <strong>
+                            ₹12,450
+                        </strong>
+
+                        <p>
+                            of ₹50,000 used
+                        </p>
+
+
+                        <div class="limit-bar">
+
+                            <span
+                                style="width: 25%;">
+                            </span>
+
+                        </div>
+
+
+                        <small>
+                            ₹37,550 remaining
+                        </small>
+
+                    </div>
+
+
+                    <div class="limit-card">
+
+                        <div class="limit-card-top">
+
+                            <div class="limit-icon purple">
+                                🏧
+                            </div>
+
+                            <span>
+                                ATM Withdrawal
+                            </span>
+
+                        </div>
+
+
+                        <strong>
+                            ₹5,000
+                        </strong>
+
+                        <p>
+                            of ₹25,000 used
+                        </p>
+
+
+                        <div class="limit-bar purple-bar">
+
+                            <span
+                                style="width: 20%;">
+                            </span>
+
+                        </div>
+
+
+                        <small>
+                            ₹20,000 remaining
+                        </small>
+
+                    </div>
+
+
+                    <div class="limit-card">
+
+                        <div class="limit-card-top">
+
+                            <div class="limit-icon green">
+                                🌐
+                            </div>
+
+                            <span>
+                                Online Spending
+                            </span>
+
+                        </div>
+
+
+                        <strong>
+                            ₹7,450
+                        </strong>
+
+                        <p>
+                            of ₹30,000 used
+                        </p>
+
+
+                        <div class="limit-bar green-bar">
+
+                            <span
+                                style="width: 25%;">
+                            </span>
+
+                        </div>
+
+
+                        <small>
+                            ₹22,550 remaining
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 CARD ACTIVITY
+                 ================================================= -->
+
+            <section class="activity-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="welcome-small">
+                            Recent activity
+                        </p>
+
+                        <h2>
+                            Card Transactions
+                        </h2>
+
+                    </div>
+
+
+                    <a
+                        href="transactions.html"
+                        class="view-all">
+
+                        View All →
+
+                    </a>
+
+                </div>
+
+
+                <div class="card-activity-list">
+
+
+                    <div class="card-activity-item">
+
+                        <div class="activity-icon merchant">
+                            🛒
+                        </div>
+
+                        <div class="activity-info">
+
+                            <strong>
+                                FreshMart
+                            </strong>
+
+                            <span>
+                                Today, 10:42 AM
+                            </span>
+
+                        </div>
+
+                        <div class="activity-amount">
+                            -₹2,450
+                        </div>
+
+                        <span class="activity-status">
+                            Completed
+                        </span>
+
+                    </div>
+
+
+                    <div class="card-activity-item">
+
+                        <div class="activity-icon merchant">
+                            ☕
+                        </div>
+
+                        <div class="activity-info">
+
+                            <strong>
+                                Coffee House
+                            </strong>
+
+                            <span>
+                                Yesterday, 4:18 PM
+                            </span>
+
+                        </div>
+
+                        <div class="activity-amount">
+                            -₹320
+                        </div>
+
+                        <span class="activity-status">
+                            Completed
+                        </span>
+
+                    </div>
+
+
+                    <div class="card-activity-item">
+
+                        <div class="activity-icon merchant">
+                            ⛽
+                        </div>
+
+                        <div class="activity-info">
+
+                            <strong>
+                                City Fuel
+                            </strong>
+
+                            <span>
+                                Yesterday, 9:25 AM
+                            </span>
+
+                        </div>
+
+                        <div class="activity-amount">
+                            -₹1,850
+                        </div>
+
+                        <span class="activity-status">
+                            Completed
+                        </span>
+
+                    </div>
+
+
+                    <div class="card-activity-item">
+
+                        <div class="activity-icon merchant">
+                            🎬
+                        </div>
+
+                        <div class="activity-info">
+
+                            <strong>
+                                Movie Center
+                            </strong>
+
+                            <span>
+                                01 Sep 2026, 7:40 PM
+                            </span>
+
+                        </div>
+
+                        <div class="activity-amount">
+                            -₹850
+                        </div>
+
+                        <span class="activity-status">
+                            Completed
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SECURITY NOTICE
+                 ================================================= -->
+
+            <div class="data-protection-note">
+
+                <span>
+                    🛡️
+                </span>
+
+                <p>
+                    Card numbers, expiry dates and security codes are
+                    intentionally masked in this demo. Never expose
+                    complete card credentials in client-side code.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CARD DETAILS MODAL
+             ================================================= -->
+
+        <div
+            class="modal-overlay"
+            id="detailsModal">
+
+            <div class="confirmation-modal">
+
+                <button
+                    class="modal-close"
+                    id="closeDetailsModal">
+
+                    ×
+
+                </button>
+
+
+                <div class="confirmation-icon">
+                    🔐
+                </div>
+
+
+                <h2>
+                    Protected Card Details
+                </h2>
+
+
+                <p>
+                    Sensitive card information is hidden for
+                    your protection.
+                </p>
+
+
+                <div class="protected-details">
+
+                    <div>
+
+                        <span>
+                            Card number
+                        </span>
+
+                        <strong>
+                            •••• •••• •••• 4821
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Expiry
+                        </span>
+
+                        <strong>
+                            ••/••
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            CVV
+                        </span>
+
+                        <strong>
+                            •••
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="modal-warning">
+
+                    🔒
+                    Complete card credentials are never
+                    displayed by this demo.
+
+                </div>
+
+
+                <button
+                    class="btn btn-primary full-width"
+                    id="closeDetailsButton">
+
+                    Close
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             FREEZE MODAL
+             ================================================= -->
+
+        <div
+            class="modal-overlay"
+            id="freezeModal">
+
+            <div class="confirmation-modal">
+
+                <button
+                    class="modal-close"
+                    id="closeFreezeModal">
+
+                    ×
+
+                </button>
+
+
+                <div
+                    class="confirmation-icon"
+                    id="freezeIcon">
+
+                    ❄
+
+                </div>
+
+
+                <h2 id="freezeTitle">
+                    Freeze Card?
+                </h2>
+
+
+                <p id="freezeText">
+                    New card transactions will be blocked
+                    while the card is frozen.
+                </p>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        class="btn btn-secondary"
+                        id="cancelFreeze">
+
+                        Cancel
+
+                    </button>
+
+
+                    <button
+                        class="btn btn-danger"
+                        id="confirmFreeze">
+
+                        Freeze Card
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             LIMIT MODAL
+             ================================================= -->
+
+        <div
+            class="modal-overlay"
+            id="limitModal">
+
+            <div class="confirmation-modal">
+
+                <button
+                    class="modal-close"
+                    id="closeLimitModal">
+
+                    ×
+
+                </button>
+
+
+                <div class="confirmation-icon">
+                    ⚙️
+                </div>
+
+
+                <h2>
+                    Spending Limits
+                </h2>
+
+
+                <p>
+                    Set your preferred daily spending limit.
+                </p>
+
+
+                <label class="modal-input-label">
+                    Daily limit
+                </label>
+
+
+                <div class="amount-input-wrapper">
+
+                    <span>
+                        ₹
+                    </span>
+
+                    <input
+                        type="number"
+                        id="newLimit"
+                        min="1000"
+                        max="100000"
+                        value="50000">
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        class="btn btn-secondary"
+                        id="cancelLimit">
+
+                        Cancel
+
+                    </button>
+
+
+                    <button
+                        class="btn btn-primary"
+                        id="saveLimit">
+
+                        Save Limit
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             ADD CARD MODAL
+             ================================================= -->
+
+        <div
+            class="modal-overlay"
+            id="addCardModal">
+
+            <div class="confirmation-modal">
+
+                <button
+                    class="modal-close"
+                    id="closeAddCardModal">
+
+                    ×
+
+                </button>
+
+
+                <div class="confirmation-icon">
+                    💳
+                </div>
+
+
+                <h2>
+                    Add a New Card
+                </h2>
+
+
+                <p>
+                    New cards would be issued through the bank's
+                    secure card-management system.
+                </p>
+
+
+                <div class="modal-warning">
+
+                    🔒
+                    This front-end demo does not collect or store
+                    real card numbers.
+
+                </div>
+
+
+                <button
+                    class="btn btn-primary full-width"
+                    id="finishAddCard">
+
+                    Continue
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
+        <footer class="dashboard-footer">
+
+            <span>
+                © 2026 MyBank
+            </span>
+
+            <div>
+
+                <a href="#">
+                    Privacy
+                </a>
+
+                <a href="#">
+                    Security
+                </a>
+
+                <a href="help.html">
+                    Help
+                </a>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+
+    <!-- =====================================================
+         AUTHENTICATION
+         ===================================================== -->
+
+    <script src="auth.js"></script>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+
+        /* ==========================================
+           PAGE PROTECTION
+           ========================================== */
+
+        protectPage();
+
+
+        /* ==========================================
+           USER SESSION
+           ========================================== */
+
+        const session = getSession();
+
+
+        if (session) {
+
+            document.getElementById(
+                "topUserName"
+            ).textContent =
+                session.name;
+
+            document.getElementById(
+                "cardHolder"
+            ).textContent =
+                session.name.toUpperCase();
+
+        }
+
+
+        /* ==========================================
+           CARD STATE
+           ========================================== */
+
+        let cardFrozen = false;
+
+
+        const freezeButton =
+            document.getElementById(
+                "freezeButton"
+            );
+
+
+        const cardStatus =
+            document.getElementById(
+                "cardStatus"
+            );
+
+
+        /* ==========================================
+           FREEZE MODAL
+           ========================================== */
+
+        const freezeModal =
+            document.getElementById(
+                "freezeModal"
+            );
+
+
+        const freezeTitle =
+            document.getElementById(
+                "freezeTitle"
+            );
+
+
+        const freezeText =
+            document.getElementById(
+                "freezeText"
+            );
+
+
+        const confirmFreeze =
+            document.getElementById(
+                "confirmFreeze"
+            );
+
+
+        freezeButton.addEventListener(
+            "click",
+            function () {
+
+                if (cardFrozen) {
+
+                    cardFrozen = false;
+
+                    updateCardState();
+
+                    return;
+
+                }
+
+
+                freezeTitle.textContent =
+                    "Freeze Card?";
+
+                freezeText.textContent =
+                    "New card transactions will be blocked while the card is frozen.";
+
+                confirmFreeze.textContent =
+                    "Freeze Card";
+
+                freezeModal.classList.add(
+                    "show"
+                );
+
+                document.body.classList.add(
+                    "modal-open"
+                );
+
+            }
+        );
+
+
+        function updateCardState() {
+
+            if (cardFrozen) {
+
+                cardStatus.textContent =
+                    "● Frozen";
+
+                cardStatus.classList.remove(
+                    "active"
+                );
+
+                cardStatus.classList.add(
+                    "frozen"
+                );
+
+                freezeButton.textContent =
+                    "✓ Unfreeze Card";
+
+
+                document
+                    .getElementById("bankCard")
+                    .classList.add("frozen-card");
+
+            } else {
+
+                cardStatus.textContent =
+                    "● Active";
+
+                cardStatus.classList.remove(
+                    "frozen"
+                );
+
+                cardStatus.classList.add(
+                    "active"
+                );
+
+                freezeButton.textContent =
+                    "❄ Freeze Card";
+
+
+                document
+                    .getElementById("bankCard")
+                    .classList.remove(
+                        "frozen-card"
+                    );
+
+            }
+
+        }
+
+
+        function closeFreezeModal() {
+
+            freezeModal.classList.remove(
+                "show"
+            );
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+
+        }
+
+
+        document
+            .getElementById("closeFreezeModal")
+            .addEventListener(
+                "click",
+                closeFreezeModal
+            );
+
+
+        document
+            .getElementById("cancelFreeze")
+            .addEventListener(
+                "click",
+                closeFreezeModal
+            );
+
+
+        confirmFreeze.addEventListener(
+            "click",
+            function () {
+
+                cardFrozen = true;
+
+                updateCardState();
+
+                closeFreezeModal();
+
+            }
+        );
+
+
+        /* ==========================================
+           CARD DETAILS MODAL
+           ========================================== */
+
+        const detailsModal =
+            document.getElementById(
+                "detailsModal"
+            );
+
+
+        function closeDetailsModal() {
+
+            detailsModal.classList.remove(
+                "show"
+            );
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+
+        }
+
+
+        document
+            .getElementById("detailsButton")
+            .addEventListener(
+                "click",
+                function () {
+
+                    detailsModal.classList.add(
+                        "show"
+                    );
+
+                    document.body.classList.add(
+                        "modal-open"
+                    );
+
+                }
+            );
+
+
+        document
+            .getElementById("closeDetailsModal")
+            .addEventListener(
+                "click",
+                closeDetailsModal
+            );
+
+
+        document
+            .getElementById("closeDetailsButton")
+            .addEventListener(
+                "click",
+                closeDetailsModal
+            );
+
+
+        /* ==========================================
+           LIMIT MODAL
+           ========================================== */
+
+        const limitModal =
+            document.getElementById(
+                "limitModal"
+            );
+
+
+        document
+            .getElementById("limitButton")
+            .addEventListener(
+                "click",
+                openLimitModal
+            );
+
+
+        document
+            .getElementById("manageLimits")
+            .addEventListener(
+                "click",
+                openLimitModal
+            );
+
+
+        function openLimitModal() {
+
+            limitModal.classList.add(
+                "show"
+            );
+
+            document.body.classList.add(
+                "modal-open"
+            );
+
+        }
+
+
+        function closeLimitModal() {
+
+            limitModal.classList.remove(
+                "show"
+            );
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+
+        }
+
+
+        document
+            .getElementById("closeLimitModal")
+            .addEventListener(
+                "click",
+                closeLimitModal
+            );
+
+
+        document
+            .getElementById("cancelLimit")
+            .addEventListener(
+                "click",
+                closeLimitModal
+            );
+
+
+        document
+            .getElementById("saveLimit")
+            .addEventListener(
+                "click",
+                function () {
+
+                    const value =
+                        Number(
+                            document.getElementById(
+                                "newLimit"
+                            ).value
+                        );
+
+
+                    if (
+                        !Number.isFinite(value) ||
+                        value < 1000 ||
+                        value > 100000
+                    ) {
+
+                        alert(
+                            "Please enter a limit between ₹1,000 and ₹1,00,000."
+                        );
+
+                        return;
+
+                    }
+
+
+                    document
+                        .querySelector(
+                            ".limit-card strong"
+                        )
+                        .textContent =
+                        "₹12,450";
+
+
+                    document
+                        .querySelector(
+                            ".limit-card p"
+                        )
+                        .textContent =
+                        "of ₹" +
+                        value.toLocaleString(
+                            "en-IN"
+                        ) +
+                        " used";
+
+
+                    closeLimitModal();
+
+
+                    alert(
+                        "Daily card limit updated in this demo."
+                    );
+
+                }
+            );
+
+
+        /* ==========================================
+           ADD CARD MODAL
+           ========================================== */
+
+        const addCardModal =
+            document.getElementById(
+                "addCardModal"
+            );
+
+
+        document
+            .getElementById("addCardButton")
+            .addEventListener(
+                "click",
+                function () {
+
+                    addCardModal.classList.add(
+                        "show"
+                    );
+
+                    document.body.classList.add(
+                        "modal-open"
+                    );
+
+                }
+            );
+
+
+        function closeAddCardModal() {
+
+            addCardModal.classList.remove(
+                "show"
+            );
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+
+        }
+
+
+        document
+            .getElementById("closeAddCardModal")
+            .addEventListener(
+                "click",
+                closeAddCardModal
+            );
+
+
+        document
+            .getElementById("finishAddCard")
+            .addEventListener(
+                "click",
+                function () {
+
+                    closeAddCardModal();
+
+                    alert(
+                        "Demo: card application would continue through a secure banking flow."
+                    );
+
+                }
+            );
+
+
+        /* ==========================================
+           CARD CONTROL TOGGLES
+           ========================================== */
+
+        const controlCards =
+            document.querySelectorAll(
+                ".control-card"
+            );
+
+
+        controlCards.forEach(
+            function (card) {
+
+                card.addEventListener(
+                    "click",
+                    function () {
+
+                        const toggle =
+                            card.querySelector(
+                                ".mini-toggle"
+                            );
+
+                        const text =
+                            card.querySelector(
+                                "span:nth-child(2)"
+                            );
+
+
+                        toggle.classList.toggle(
+                            "active"
+                        );
+
+
+                        if (
+                            toggle.classList.contains(
+                                "active"
+                            )
+                        ) {
+
+                            text.textContent =
+                                "Enabled";
+
+                        } else {
+
+                            text.textContent =
+                                "Disabled";
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* ==========================================
+           NOTIFICATIONS
+           ========================================== */
+
+        document
+            .getElementById("notificationButton")
+            .addEventListener(
+                "click",
+                function () {
+
+                    alert(
+                        "You have 2 new notifications."
+                    );
+
+                }
+            );
+
+
+        /* ==========================================
+           MOBILE SIDEBAR
+           ========================================== */
+
+        const mobileMenuButton =
+            document.getElementById(
+                "mobileMenuButton"
+            );
+
+
+        const sidebar =
+            document.getElementById(
+                "sidebar"
+            );
+
+
+        const sidebarOverlay =
+            document.getElementById(
+                "sidebarOverlay"
+            );
+
+
+        function openSidebar() {
+
+            sidebar.classList.add(
+                "open"
+            );
+
+            sidebarOverlay.classList.add(
+                "show"
+            );
+
+            document.body.classList.add(
+                "sidebar-open"
+            );
+
+        }
+
+
+        function closeSidebar() {
+
+            sidebar.classList.remove(
+                "open"
+            );
+
+            sidebarOverlay.classList.remove(
+                "show"
+            );
+
+            document.body.classList.remove(
+                "sidebar-open"
+            );
+
+        }
+
+
+        mobileMenuButton.addEventListener(
+            "click",
+            openSidebar
+        );
+
+
+        sidebarOverlay.addEventListener(
+            "click",
+            closeSidebar
+        );
+
+
+        /* ==========================================
+           ESCAPE KEY
+           ========================================== */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (event.key !== "Escape") {
+                    return;
+                }
+
+                closeFreezeModal();
+                closeDetailsModal();
+                closeLimitModal();
+                closeAddCardModal();
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
